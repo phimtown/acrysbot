@@ -24,3 +24,5 @@ acry$ drop <1-10> | drops a random rap line. optional: add argument to send 1-10
 acry$ color <color> | assigns a premade color to you. available colors: alizarin, pomegranate, carrot, pumpkin, sunflower, orange, turquoise, greensea, emerald, nephritis, peterriver, belizehole, amethyst, wisteria.  
   
 acry$ color <hex> | assigns a custom color to you. hex color code expected (e.G. #12dce3).  
+
+acry$ removecolor <color/hex> | remove a color role from yourself.  

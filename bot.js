@@ -67,6 +67,7 @@ function addRole(roleName, msg, color) {
         data: {
           name: roleName,
           color: color,
+          position: msg.guild.roles.cache.size - 1
         }
       })
       .then()
@@ -81,6 +82,16 @@ function addRole(roleName, msg, color) {
   }
 }
 
+function removeRole(roleName, msg) {
+  var role = msg.guild.roles.cache.find(role => role.name === roleName);
+  if(msg.member.roles.cache.find(r => r.name === roleName)) {
+    msg.member.roles.remove(role);
+    msg.channel.send({embed: notifEmbed('Success!', 'A color role has been removed from you.', msg.author.avatarURL(), msg.author.tag)});
+  } else {
+    msg.channel.send({embed: errorEmbed('You don\'t have that color role!', msg.author.avatarURL(), msg.author.tag)});
+  }
+}
+
 function isHexColor (hex) {
   return typeof hex === 'string'
       && hex.length === 6
@@ -89,7 +100,7 @@ function isHexColor (hex) {
 
 bot.on('ready', () => {
     bot.user.setStatus("online");
-    bot.user.setActivity("acry$ help | v1.0.0", { type: "WATCHING" });
+    bot.user.setActivity("acry$ help | v1.0.3", { type: "WATCHING" });
 });
 
 bot.on("message", async msg => {
@@ -221,9 +232,9 @@ bot.on("message", async msg => {
                     case "emerald": addRole("emerald", msg, 0x2ecc71); break;
                     case "nephritis": addRole("nephritis", msg, 0x27ae60); break;
                     case "peterriver": addRole("peterriver", msg, 0x3498db); break;
-                    case "belizehole": addRole("belizehole", msg, 0xe74c3c); break;
-                    case "amethyst": addRole("amethyst", msg, 0xe74c3c); break;
-                    case "wisteria": addRole("wisteria", msg, 0xe74c3c); break;
+                    case "belizehole": addRole("belizehole", msg, 0x2980b9); break;
+                    case "amethyst": addRole("amethyst", msg, 0x9b59b6); break;
+                    case "wisteria": addRole("wisteria", msg, 0x8e44ad); break;
                     default: 
                       var colorHex = args[0].substring(1);
                       if(isHexColor(colorHex)) {
@@ -238,7 +249,33 @@ bot.on("message", async msg => {
                 }
                 break;
             case "removecolor":
-              //TODO: Command for removing color roles only from oneself (roles which are hex codes or the preset color roles)
+              if(args.length > 0) {
+                switch(args[0]) {
+                  case "alizarin": removeRole("alizarin", msg); break;
+                  case "pomegranate": removeRole("pomegranate", msg); break;
+                  case "carrot": removeRole("carrot", msg); break;
+                  case "pumpkin": removeRole("pumpkin", msg); break;
+                  case "sunflower": removeRole("sunflower", msg); break;
+                  case "orange": removeRole("orange", msg); break;
+                  case "turquoise": removeRole("turquoise", msg); break;
+                  case "greensea": removeRole("greensea", msg); break;
+                  case "emerald": removeRole("emerald", msg); break;
+                  case "nephritis": removeRole("nephritis", msg); break;
+                  case "peterriver": removeRole("peterriver", msg); break;
+                  case "belizehole": removeRole("belizehole", msg); break;
+                  case "amethyst": removeRole("amethyst", msg); break;
+                  case "wisteria": removeRole("wisteria", msg); break;
+                  default:
+                    if(args[0].charAt(0) == "#" && isHexColor(args[0].substring(1))){
+                      removeRole(args[0], msg);
+                    } else {
+                      msg.channel.send({embed: errorEmbed('Specified role is not a color role.', msg.author.avatarURL(), msg.author.tag)});
+                    }
+                    break;
+                }
+              } else {
+                msg.channel.send({embed: errorEmbed('No role to remove provided.', msg.author.avatarURL(), msg.author.tag)});
+              }
               break;
         }
 });
