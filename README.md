@@ -8,6 +8,7 @@ https://discordapp.com/api/oauth2/authorize?client_id=704169764397908088&permiss
 
 # setup >>
 
+git clone https://github.com/wtf6yte/acrysbot.git  
 npm i discord.js  
 npm i dotenv  
 nano .env  
