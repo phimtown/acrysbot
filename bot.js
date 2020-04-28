@@ -100,7 +100,7 @@ function isHexColor (hex) {
 
 bot.on('ready', () => {
     bot.user.setStatus("online");
-    bot.user.setActivity("acry$ help | v1.0.3", { type: "WATCHING" });
+    bot.user.setActivity("acry$ help | v1.0.4", { type: "WATCHING" });
 });
 
 bot.on("message", async msg => {
@@ -138,6 +138,10 @@ bot.on("message", async msg => {
                             {
                               "name": "acry$ color <hex>",
                               "value": "assigns a custom color to you. hex color code expected (e.G. #12dce3)."
+                            },
+                            {
+                              "name": "acry$ removecolor <color/hex>",
+                              "value": "remove a color role from yourself."
                             }
                           ]
                         };
@@ -175,6 +179,10 @@ bot.on("message", async msg => {
                       {
                         "name": "acry$ color <hex>",
                         "value": "assigns a custom color to you. hex color code expected (e.G. #12dce3)."
+                      },
+                      {
+                        "name": "acry$ removecolor <color/hex>",
+                        "value": "remove a color role from yourself."
                       }
                     ]
                   };
