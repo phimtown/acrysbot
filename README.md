@@ -1,6 +1,11 @@
 # acrysbot
 discord bot project
 
+# invite link >>
+
+note: this bot is not optimized to be used with multiple servers yet.  
+https://discordapp.com/api/oauth2/authorize?client_id=704169764397908088&permissions=8&scope=bot
+
 # setup >>
 
 npm i discord.js  
