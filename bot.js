@@ -1,15 +1,13 @@
-const { Client } = require("discord.js");
-const { config } = require("dotenv");
-const { drops } = require('./drops');
-var prefix = "acry$ ";
+const Discord = require("discord.js");
+const {config} = require("dotenv");
+const {drops}  = require('./drops');
+const prefix = "acry$ ";
 
-var bot = new Client({
-    disableEveryone: true
-});
+const bot = new Discord.Client();
 
 config({
     path: __dirname + "/.env"
-})
+});
 
 function errorEmbed(message, avatarURL, tag) {
     return {
@@ -100,7 +98,7 @@ function isHexColor (hex) {
 
 bot.on('ready', () => {
     bot.user.setStatus("online");
-    bot.user.setActivity("acry$ help | online on " + client.guilds.cache.size + " servers", { type: "WATCHING" });
+    bot.user.setActivity("acry$ help | online on " + bot.guilds.cache.size + " servers", { type: "WATCHING" });
 });
 
 bot.on("message", async msg => {
@@ -113,6 +111,61 @@ bot.on("message", async msg => {
         var timestamp = date.getFullYear() + '-' + ("0" + (date.getMonth() + 1)).slice(-2) + '-' + ("0" + date.getDate()).slice(-2) + 'T' + date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds() + '.' + date.getMilliseconds() + 'Z';
 
         switch(cmd) {
+          case "server":
+           if (!args.length) {
+              var __mainguild__ = bot.guilds.cache.get(msg.guild.id);
+              var sicon = __mainguild__.iconURL();
+              const embed = new Discord.MessageEmbed()
+              	.setColor(0x53e677)
+                 .setTimestamp()
+                 .addField('Created on: ', __mainguild__.createdAt)
+                 .addField('Members: ', __mainguild__.memberCount)
+                 .setThumbnail(sicon)
+                 .setDescription(__mainguild__.name);
+              msg.channel.send(embed);
+              return;
+        } else {
+            try {
+                var __mainguild__ = bot.guilds.cache.get(args.toString());
+                var sicon = __mainguild__.iconURL();
+
+                const embed = new Discord.MessageEmbed()
+                   .setColor(0x53e677)
+                    .setTimestamp()
+                    .setThumbnail(sicon)
+                    .addField('Created on: ', __mainguild__.createdAt)
+                    .addField('Members: ', __mainguild__.memberCount)
+                    .setDescription(__mainguild__.name);
+                msg.channel.send(embed);
+            } catch (TypeError) {
+                console.log(TypeError);
+                msg.channel.send({embed: errorEmbed('guild not found.', msg.author.avatarURL(), msg.author.tag)});
+            }
+        }
+        break; 
+        case "user":
+          try {
+            let __user__ = msg.mentions.users.first();
+            let user = msg.guild.member(__user__);
+
+            const embed = new Discord.MessageEmbed()
+                .setColor(0x53e677)
+                .setTimestamp()
+                .setThumbnail(__user__.avatarURL())
+                .addField('Joined guild on: ', user.joinedAt)
+                .addField('Presence: ', JSON.stringify(__user__.presence.status).toLowerCase())
+                .addField('Created account: ', __user__.createdAt)
+                .addField('Last message: ', user.lastMessageID)
+                .addField('ClientID: ', __user__.id)
+                .addField('Discriminator: ', __user__.discriminator)
+                .addField('Bot: ', __user__.bot);
+            msg.channel.send(embed);
+        } catch (TypeError) {
+            console.log(TypeError);
+            msg.channel.send({embed: errorEmbed('user not found.', msg.author.avatarURL(), msg.author.tag)});
+        }
+        break;
+
             case "help":
                 var helpEmbed;
                 if(args.length > 0) {
