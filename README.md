@@ -5,7 +5,7 @@ please don't skid, thank you. we're happy if you can learn something from our co
 # contributors
 
 github/wtf6yte - founder & development  
-github/6lyxt - founder & development
+github/6lyxt - founder & development  
 github/kyud - design
 
 # invite link
