@@ -100,7 +100,7 @@ function isHexColor (hex) {
 
 bot.on('ready', () => {
     bot.user.setStatus("online");
-    bot.user.setActivity("acry$ help | v1.0.4", { type: "WATCHING" });
+    bot.user.setActivity("acry$ help | online on " + client.guilds.cache.size + " servers", { type: "WATCHING" });
 });
 
 bot.on("message", async msg => {
