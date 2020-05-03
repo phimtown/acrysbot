@@ -13,7 +13,7 @@ config({
 
 bot.on('ready', () => {
     bot.user.setStatus("online");
-    bot.user.setActivity("acry$ help | v1.0.5", { type: "WATCHING" });
+    bot.user.setActivity("acry$ help | online on " + client.guilds.cache.size + " servers", { type: "WATCHING" });
 });
 
 bot.on("message", async msg => {
@@ -97,7 +97,7 @@ bot.on("message", async msg => {
                     case "belizehole": addRole("belizehole", msg, 0x2980b9); break;
                     case "amethyst": addRole("amethyst", msg, 0x9b59b6); break;
                     case "wisteria": addRole("wisteria", msg, 0x8e44ad); break;
-                    default: 
+                    default:
                       var colorHex = args[0].substring(1);
                       if(isHexColor(colorHex)) {
                         addRole(args[0], msg, parseInt(colorHex, 16));

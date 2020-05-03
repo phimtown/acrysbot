@@ -1,28 +1,22 @@
 # acrysbot
 discord bot project
+please don't skid, thank you. we're happy if you can learn something from our code though.
 
-# invite link >>
+# contributors
+
+github/wtf6yte - founder & development  
+github/6lyxt - founder & development
+github/kyud - design
+
+# invite link
 
 note: this bot is not optimized to be used with multiple servers yet.  
-https://discordapp.com/api/oauth2/authorize?client_id=704169764397908088&permissions=8&scope=bot
+https://acrysbot.xyz/acrysinvite
 
-# setup >>
+# development discord
 
-git clone https://github.com/wtf6yte/acrysbot.git  
-cd acrysbot/  
-npm i discord.js  
-npm i dotenv  
-nano .env  
-TOKEN={token}  
-save, done.  
+https://acrysbot.xyz/acryscord
 
-# commands >>
-$help | list all commands  
+# commands
 
-acry$ drop [1-10] | drops a random rap line. optional: add argument to send 1-10 lines. default: 1  
-
-acry$ color [color] | assigns a premade color to you. available colors: alizarin, pomegranate, carrot, pumpkin, sunflower, orange, turquoise, greensea, emerald, nephritis, peterriver, belizehole, amethyst, wisteria.  
-  
-acry$ color [hex] | assigns a custom color to you. hex color code expected (e.G. #12dce3).  
-
-acry$ removecolor [color/hex] | remove a color role from yourself.  
+https://acrysbot.xyz/commands  
