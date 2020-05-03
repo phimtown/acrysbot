@@ -1,6 +1,6 @@
 {
   "name": "acrysbot",
-  "version": "1.0.0",
+  "version": "1.0.5",
   "description": "discord bot project",
   "main": "bot.js",
   "scripts": {
@@ -15,7 +15,7 @@
   "bugs": {
     "url": "https://github.com/wtf6yte/acrysbot/issues"
   },
-  "homepage": "https://github.com/wtf6yte/acrysbot#readme",
+  "homepage": "https://acrysbot.xyz",
   "dependencies": {
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0"
