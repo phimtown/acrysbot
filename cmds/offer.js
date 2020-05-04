@@ -1,4 +1,5 @@
 const embeds = require('../utils/embeds');
+const Discord = require('discord.js');
 
 //todo: server cached market channels
 
@@ -18,29 +19,18 @@ module.exports.run = async (bot, msg, args) => {
           }
       }
 
-      var offerEmbed = offerEmbed = {
-          "color": 0xed8a4c,
-          "footer": {
-              "icon_url": msg.author.avatarURL(),
-              "text": msg.author.tag
-          },
-          "author": {
-              "name": args[0],
-              "icon_url": msg.author.avatarURL
-          },
-          "image": {
-              "url": url
-          },
-          "fields": [{
-              "name": args[1],
-              "value": args[2] + " " + args[3]
-          }]
-      };
-      msg.channel.send({
-          embed: offerEmbed
-      });
+      const embed = new Discord.MessageEmbed()
+          .setColor(0xed8a4c)
+          .setTimestamp()
+          .setFooter(msg.author.tag, msg.author.avatarURL())
+          .setAuthor(args[0], msg.author.avatarURL)
+          .setImage(url)
+          .addField(args[1], args[2] + " " + args[3]);
+      msg.channel.send({embed: embed});
   } else {
-      msg.channel.send('Error');
+    msg.channel.send({
+        embed: embeds.errorEmbed("You didn't specify enough arguments.", msg.author.avatarURL, msg.author.tag)
+    });
   }
 };
 
