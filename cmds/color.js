@@ -1,6 +1,6 @@
-const { embeds } = require('../utils/embeds');
-const { roles } = require('../utils/roles');
-const { utils } = require('../utils/roles');
+const embeds = require('../utils/embeds.js');
+const roles = require('../utils/roles.js');
+const utils = require('../utils/utils.js');
 
 module.exports.run = async (bot, msg, args) => {
   if (args.length > 0) {
@@ -49,7 +49,7 @@ module.exports.run = async (bot, msg, args) => {
               break;
           default:
               var colorHex = args[0].substring(1);
-              if (isHexColor(colorHex)) {
+              if (utils.isHexColor(colorHex)) {
                   roles.addRole(args[0], msg, parseInt(colorHex, 16));
               } else {
                   msg.channel.send({

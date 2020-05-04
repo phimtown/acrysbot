@@ -1,4 +1,4 @@
-const {chars} = require('../json/chars');
+const chars = require('../json/chars');
 const fs = require('fs');
 const Discord = require('discord.js');
 

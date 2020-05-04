@@ -1,4 +1,4 @@
-const { embeds } = require('../utils/embeds');
+const embeds = require('../utils/embeds');
 
 //todo: server cached market channels
 

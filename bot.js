@@ -30,8 +30,8 @@ fs.readdir("./cmds/", (err, files) => {
   console.log(`> loaded ${jsfiles.length} commands.`);
 
   jsfiles.forEach((f, i) => {
-    let props = require(`./cmds/${f}`);
-    bot.commands.set(f, props);
+    let prop = require(`./cmds/${f}`);
+    bot.commands.set(f, prop);
   });
 });
 

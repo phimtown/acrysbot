@@ -1,4 +1,4 @@
-const { embeds } = require('../utils/embeds');
+const embeds = require('../utils/embeds');
 const { drops } = require('../json/drops');
 
 module.exports.run = async (bot, msg, args) => {
