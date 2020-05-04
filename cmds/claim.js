@@ -11,7 +11,6 @@ module.exports.run = async (bot, msg, args) => {
             if (err) throw err
             console.log(err)
 
-
             if (!(data.toString().includes(args.toString()))) {
                 if (chars.toString().includes(args.toString())) {
                     fs.appendFile('json/game/claimed.json', JSON.stringify(args), (err) => {
@@ -20,6 +19,7 @@ module.exports.run = async (bot, msg, args) => {
 
                         const embed = new Discord.MessageEmbed()
                         .setTimestamp()
+                        .setFooter(msg.author.tag, msg.author.avatarURL())
                         .setDescription('Character was successfully claimed.')
                         .addField('Claimed character: ', args);
                         msg.channel.send(embed);

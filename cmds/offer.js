@@ -20,7 +20,6 @@ module.exports.run = async (bot, msg, args) => {
 
       var offerEmbed = offerEmbed = {
           "color": 0xed8a4c,
-          "timestamp": timestamp,
           "footer": {
               "icon_url": msg.author.avatarURL(),
               "text": msg.author.tag
@@ -41,9 +40,7 @@ module.exports.run = async (bot, msg, args) => {
           embed: offerEmbed
       });
   } else {
-      msg.channel.send({
-          embed: embeds.errorEmbed("You didn't specify enough arguments. Try $help.", msg.author.avatarURL, msg.author.tag)
-      });
+      msg.channel.send('Error');
   }
 };
 

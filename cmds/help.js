@@ -1,24 +1,13 @@
+const Discord = require('discord.js');
+
 module.exports.run = async (bot, msg, args) => {
-  var helpEmbed = {
-      "color": 4889423,
-      "timestamp": timestamp,
-      "footer": {
-          "icon_url": msg.author.avatarURL(),
-          "text": msg.author.tag
-      },
-      "author": {
-          "name": "acrys//bot commands" + title,
-          "url": "https://acrysbot.xyz/commands",
-          "icon_url": bot.user.avatarURL()
-      },
-      "fields": [{
-          "name": "link to the commands list.",
-          "value": "https://acrysbot.xyz/commands"
-      }]
-  };
-  msg.channel.send({
-      embed: helpEmbed
-  });
+    const embed = new Discord.MessageEmbed()
+    .setColor(4889423)
+    .setTimestamp()
+    .setFooter(msg.author.tag, msg.author.avatarURL())
+    .setAuthor("acrys//bot commands", bot.user.avatarURL(), "https://acrysbot.xyz/commands")
+    .addField("link to the commands list.", "https://acrysbot.xyz/commands");
+    msg.channel.send(embed);
 };
 
 module.exports.help = {
