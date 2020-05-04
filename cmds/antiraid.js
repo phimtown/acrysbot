@@ -4,13 +4,15 @@ const embeds = require('../utils/embeds.js');
 
 module.exports.run = async (bot, msg, args) => {
         if(args.length > 1){
+            if(args[1] != null){
             switch(args[0]){
                 case "enabled":
-                writeToFile(args[0]);
+                writeToFile(args);
                 throwEmbed('enabled', args[1]);
                 break;
+
                 case "disabled":
-                writeToFile(args[0]);
+                writeToFile(args);
                 throwEmbed('disabled', args[1]);
                 break;
                 default:
@@ -18,9 +20,7 @@ module.exports.run = async (bot, msg, args) => {
                         embed: embeds.errorEmbed('Missing arguments. Use acry$ antiraid <enabled/disabled> <mpm>.', msg.author.avatarURL(), msg.author.tag)
                     });
 
-            }
-            if(args[1] != null){
-                writeToFile(args[1]);
+                }
             }
         } else {
             msg.channel.send({
@@ -29,25 +29,11 @@ module.exports.run = async (bot, msg, args) => {
         }
 
     function writeToFile(arguments){
-        fs.appendFile('json/servers/' + msg.guild.id + '_settings.json', JSON.stringify(arguments), (err) => {
+        fs.writeFile('json/servers/' + msg.guild.id + '_settings.json', JSON.stringify(arguments), (err) => {
             if (err) throw err
             console.log(err);
-
             return;
         });
-        /*
-        fs.access('json/servers/' + msg.guild.id + '_settings.json', fs.F_OK, (err) => {
-            if(err)
-            console.error(err)
-            return
-        });*/
-
-        fs.unlinkSync('json/servers/' + msg.guild.id + '_settings.json', (err) => {
-            if(err)
-            console.error(err)
-            return
-        });
-
     }
 
     function throwEmbed(statement, mpm){
