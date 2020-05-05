@@ -10,7 +10,6 @@ module.exports.run = async (bot, msg, args) => {
                 writeToFile(args);
                 throwEmbed('enabled', args[1]);
                 break;
-
                 case "disabled":
                 writeToFile(args);
                 throwEmbed('disabled', args[1]);
@@ -35,7 +34,6 @@ module.exports.run = async (bot, msg, args) => {
             return;
         });
     }
-
     function throwEmbed(statement, mpm){
     const embed = new Discord.MessageEmbed()
     .setColor(4889423)
