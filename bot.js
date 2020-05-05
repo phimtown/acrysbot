@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const { config } = require("dotenv");
+const utils = require('./utils/utils.js');
 const fs = require('fs');
 const botSettings = JSON.parse(fs.readFileSync('./json/settings.json'))
 var prefix = botSettings.prefix;
@@ -36,6 +37,7 @@ fs.readdir("./cmds/", (err, files) => {
 });
 
 bot.on("message", async msg => {
+  utils.antiraid(msg.channel, msg);
   if (!msg.content.startsWith(prefix)) return;
   if(msg.author.bot) return;
 

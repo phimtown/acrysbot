@@ -1,4 +1,6 @@
 'use strict'
+const fs = require('fs');
+
 
 module.exports = {
   isHexColor: function isHexColor(hex) {
@@ -7,7 +9,10 @@ module.exports = {
         && !isNaN(Number('0x' + hex));
   },
 
-  antiraid: function antiraid(channel){
+  antiraid: function antiraid(channel, msg){
+      fs.readFile('json/servers/' + msg.guild.id + '_settings.json', (err, data) => {
+        console.log(data.toString());
+      });
       const filter = m => m.content.includes('') || m.content.includes(' ');
       const collector = channel.createMessageCollector(filter);
       var collected = 0;
