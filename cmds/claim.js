@@ -4,7 +4,9 @@ const Discord = require('discord.js');
 
 module.exports.run = async (bot, msg, args) => {
     if (!args.length) {
-        msg.channel.send('> Error: missing character');
+        msg.channel.send({
+            embed: embeds.errorEmbed('Missing character.', msg.author.avatarURL(), msg.author.tag)
+        });
     } else {
 
         fs.readFile('json/game/claimed.json', (err, data) => {

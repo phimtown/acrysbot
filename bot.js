@@ -1,7 +1,8 @@
 const Discord = require("discord.js");
 const { config } = require("dotenv");
-const utils = require('./utils/utils.js');
+const jt = require("json-toolkit");
 const fs = require('fs');
+const utils = require('./utils/utils.js');
 const botSettings = JSON.parse(fs.readFileSync('./json/settings.json'))
 var prefix = botSettings.prefix;
 
@@ -36,8 +37,27 @@ fs.readdir("./cmds/", (err, files) => {
   });
 });
 
+bot.on("voiceStateUpdate", async (oldState, newState) => {
+  jt.parseFile('json/servers/blacklists/' + newState.guild.id + '_voice.json', (error, data) => {
+    const index = data.indexOf(String(newState.id));
+    if (index > -1) {
+      newState.kick();
+    }
+  });
+});
+
+bot.on("guildMemberAdd", async member => {
+  jt.parseFile('json/servers/blacklists/' + member.guild.id + '_server.json', (error, data) => {
+    const index = data.indexOf(String(member.id));
+    if (index > -1) {
+      member.kick();
+    }
+  });
+});
+
 bot.on("message", async msg => {
-  utils.antiraid(msg.channel, msg);
+  //hurensohn code
+  //utils.antiraid(msg.channel, msg);
   if (!msg.content.startsWith(prefix)) return;
   if(msg.author.bot) return;
 

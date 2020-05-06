@@ -1,3 +1,5 @@
 
 node_modules/
 .env
+json/game/
+json/servers
