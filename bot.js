@@ -56,6 +56,7 @@ bot.on("guildMemberAdd", async member => {
 });
 
 bot.on("message", async msg => {
+  validVerify(msg);
   //hurensohn code
   //utils.antiraid(msg.channel, msg);
   if (!msg.content.startsWith(prefix)) return;
@@ -68,5 +69,24 @@ bot.on("message", async msg => {
   if(command) command.run(bot, msg, args);
 });
 
+/*
+  Meintest ja was von jt, musst selber gucken weiß nich genau ob dir das so passt, ansonten 
+  funktioniert alles so wies soll
+*/
+function validVerify(msg){
+  fs.readFile('json/' + bot.guilds.cache.get(msg.guild.id) + 'verify.json', (err, data) => {
+    if (err) throw err
+        console.log(err);
+        if (data.toString().includes(msg.channel.id)) {
+            if (msg.author.id != bot.user.id) {
+                msg.delete();
+                if (msg.content == '$verify') {
+                    let role = (msg.member.guild.roles.cache.find(role => role.name === 'member'));
+                    msg.member.roles.add(role);
+                }
+            }
+        }
+    });
+}
 
 bot.login(process.env.TOKENDEV);
