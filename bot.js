@@ -42,6 +42,7 @@ fs.readdir("./cmds/", (err, files) => {
 
 bot.on("voiceStateUpdate", async (oldState, newState) => {
     jt.parseFile('json/servers/blacklists/' + newState.guild.id + '_voice.json', (error, data) => {
+		if(error) return;
         const index = data.indexOf(String(newState.id));
         if (index > -1) {
             newState.kick();
@@ -51,6 +52,7 @@ bot.on("voiceStateUpdate", async (oldState, newState) => {
 
 bot.on("guildMemberAdd", async member => {
     jt.parseFile('json/servers/blacklists/' + member.guild.id + '_server.json', (error, data) => {
+		if(error) return;
         const index = data.indexOf(String(member.id));
         if (index > -1) {
             member.kick();
