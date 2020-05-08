@@ -41,23 +41,27 @@ fs.readdir("./cmds/", (err, files) => {
 });
 
 bot.on("voiceStateUpdate", async (oldState, newState) => {
-    jt.parseFile('json/servers/blacklists/' + newState.guild.id + '_voice.json', (error, data) => {
-		if(error) return;
-        const index = data.indexOf(String(newState.id));
-        if (index > -1) {
-            newState.kick();
-        }
-    });
+	try {
+		jt.parseFile('json/servers/blacklists/' + newState.guild.id + '_voice.json', (error, data) => {
+			if(error) return;
+			const index = data.indexOf(String(newState.id));
+			if (index > -1) {
+				newState.kick();
+			}
+		});
+	} catch {}
 });
 
 bot.on("guildMemberAdd", async member => {
-    jt.parseFile('json/servers/blacklists/' + member.guild.id + '_server.json', (error, data) => {
-		if(error) return;
-        const index = data.indexOf(String(member.id));
-        if (index > -1) {
-            member.kick();
-        }
-    });
+	try {
+		jt.parseFile('json/servers/blacklists/' + member.guild.id + '_server.json', (error, data) => {
+			if(error) return;
+			const index = data.indexOf(String(member.id));
+			if (index > -1) {
+				member.kick();
+			}
+		});
+	} catch {}
 });
 
 bot.on("message", async msg => {
@@ -75,26 +79,28 @@ bot.on("message", async msg => {
 });
 
 function validVerify(msg) {
-    jt.parseFile('json/servers/verification/' + bot.guilds.cache.get(msg.guild.id) + '_channel.json', (error, data) => {
-        if (error) return;
-        if (data.toString().includes(msg.channel.id)) {
-            if (msg.author.id != bot.user.id) {
-                msg.delete();
-                if (msg.content == 'verify') {
-                    jt.parseFile('json/servers/verification/' + bot.guilds.cache.get(msg.guild.id) + '_role.json', (error, data) => {
-                        if (error) {
-                            msg.channel.send({
-                                embed: embeds.errorEmbed("A role for verification hasn't been set up yet. Please contact an administrator or moderator of this server.", msg.author.avatarURL(), msg.author.tag)
-                            }).then(async msg => msg.delete({timeout: 2000}));
-                            return;
-                        }
-                        let role = (msg.member.guild.roles.cache.find(role => role.name === data.toString()));
-                        msg.member.roles.add(role);
-                    });
-                }
-            }
-        }
-    });
+	try {
+		jt.parseFile('json/servers/verification/' + bot.guilds.cache.get(msg.guild.id) + '_channel.json', (error, data) => {
+			if (error) return;
+			if (data.toString().includes(msg.channel.id)) {
+				if (msg.author.id != bot.user.id) {
+					msg.delete();
+					if (msg.content == 'verify') {
+						jt.parseFile('json/servers/verification/' + bot.guilds.cache.get(msg.guild.id) + '_role.json', (error, data) => {
+							if (error) {
+								msg.channel.send({
+									embed: embeds.errorEmbed("A role for verification hasn't been set up yet. Please contact an administrator or moderator of this server.", msg.author.avatarURL(), msg.author.tag)
+								}).then(async msg => msg.delete({timeout: 2000}));
+								return;
+							}
+							let role = (msg.member.guild.roles.cache.find(role => role.name === data.toString()));
+							msg.member.roles.add(role);
+						});
+					}
+				}
+			}
+		});
+	} catch {}
 }
 
 bot.login(process.env.TOKEN);
