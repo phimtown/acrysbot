@@ -1,3 +1,5 @@
+const embeds = require('./embeds.js');
+
 'use strict'
 module.exports = {
     addRole: function addRole(roleName, msg, color) {
@@ -14,17 +16,17 @@ module.exports = {
                     .then()
                     .catch(console.error);
                 msg.channel.send({
-                    embed: warningEmbed('This color is being used for the first time and has just been created. Please execute the exactly same command again.', msg.author.avatarURL(), msg.author.tag)
+                    embed: embeds.warningEmbed('This color is being used for the first time and has just been created. Please execute the exactly same command again.', msg.author.avatarURL(), msg.author.tag)
                 });
             } else {
                 msg.member.roles.add(role);
                 msg.channel.send({
-                    embed: notifEmbed('Success!', 'A color role has been assigned to you.', msg.author.avatarURL(), msg.author.tag)
+                    embed: embeds.notifEmbed('Success!', 'A color role has been assigned to you.', msg.author.avatarURL(), msg.author.tag)
                 });
             }
         } else {
             msg.channel.send({
-                embed: errorEmbed('You already have that role!', msg.author.avatarURL(), msg.author.tag)
+                embed: embeds.errorEmbed('You already have that role!', msg.author.avatarURL(), msg.author.tag)
             });
         }
     },
@@ -33,11 +35,11 @@ module.exports = {
         if (msg.member.roles.cache.find(r => r.name === roleName)) {
             msg.member.roles.remove(role);
             msg.channel.send({
-                embed: notifEmbed('Success!', 'A color role has been removed from you.', msg.author.avatarURL(), msg.author.tag)
+                embed: embeds.notifEmbed('Success!', 'A color role has been removed from you.', msg.author.avatarURL(), msg.author.tag)
             });
         } else {
             msg.channel.send({
-                embed: errorEmbed('You don\'t have that color role!', msg.author.avatarURL(), msg.author.tag)
+                embed: embeds.errorEmbed('You don\'t have that color role!', msg.author.avatarURL(), msg.author.tag)
             });
         }
     }
