@@ -1,0 +1,110 @@
+[
+	{
+		"name": "8ball",
+		"arguments": "",
+		"description": "ask 8ball a question.",
+		"category": "misc"
+	},
+	{
+		"name": "antiraid",
+		"arguments": "<enabled / disabled> [mpm]",
+		"description": "enable/disable antiraid. requires MANAGE_MESSAGES permission.",
+		"category": "moderation"
+	},
+	{
+		"name": "blacklist",
+		"arguments": "<voicejoin/serverjoin> <add/remove> <userid>",
+		"description": "blacklist or unblacklist someone from joining voicechat or a server. requires KICK_MEMBERS permission.",
+		"category": "moderation"
+	},
+	{
+		"name": "blacklisted",
+		"arguments": "<all/voicejoin/serverjoin>",
+		"description": "list the blacklisted users on a server. requires KICK_MEMBERS permission.",
+		"category": "moderation"
+	},
+	{
+		"name": "char",
+		"arguments": "",
+		"description": "returns a random available character",
+		"category": "game"
+	},
+	{
+		"name": "claim",
+		"arguments": "<game char>",
+		"description": "claim a game character",
+		"category": "game"
+	},
+	{
+		"name": "color",
+		"arguments": "<color / hex>",
+		"description": "color: assigns a premade color to you. available colors: alizarin, pomegranate, carrot, pumpkin, sunflower, orange, turquoise, greensea, emerald, nephritis, peterriver, belizehole, amethyst, wisteria.\nhex: assigns a custom color to you. hex color code expected (e.G. #12dce3).",
+		"category": "color"
+	},
+	{
+		"name": "drop",
+		"arguments": "<1-10>",
+		"description": "drops a random rap line. optional: add argument to send 1-10 lines.",
+		"category": "misc"
+	},
+	{
+		"name": "fuck",
+		"arguments": "",
+		"description": "well.. says fuck you.",
+		"category": "misc"
+	},
+	{
+		"name": "help",
+		"arguments": "",
+		"description": "lists all commands.",
+		"category": "help"
+	},
+	{
+		"name": "invite",
+		"arguments": "",
+		"description": "get the discord bots invite link.",
+		"category": "misc"
+	},
+	{
+		"name": "offer",
+		"arguments": "<title> <desc> <price> <currency> [image]",
+		"description": "creates an offer in the current channel\n- currency as text [e.G. EUR]\n- image optional using url or attatchment",
+		"category": "market"
+	},
+	{
+		"name": "removecolor",
+		"arguments": "<color/hex>",
+		"description": "remove a color role from yourself.",
+		"category": "color"
+	},
+	{
+		"name": "server",
+		"arguments": "<guildID / none>",
+		"description": "shows information about a server.",
+		"category": "misc"
+	},
+	{
+		"name": "stfricku",
+		"arguments": "",
+		"description": "tell someone to shut the frick up.",
+		"category": "misc"
+	},
+	{
+		"name": "stfu",
+		"arguments": "",
+		"description": "tell someone to shut the fuck up.",
+		"category": "misc"
+	},
+	{
+		"name": "user",
+		"arguments": "<userID>",
+		"description": "shows information about a user",
+		"category": "misc"
+	},
+	{
+		"name": "verification",
+		"arguments": "<channel/rolename> <channelID>",
+		"description": "adds verification to channel or selects role for verification.",
+		"category": "moderation"
+	}
+]

@@ -17,9 +17,7 @@ bot.on('ready', () => {
     console.log("> bot started");
     console.log("> status: acry$ help | v1.0.10 | " + bot.guilds.cache.size + " servers");
     bot.user.setStatus("online");
-    bot.user.setActivity("acry$ help | v1.0.10 | " + bot.guilds.cache.size + " servers", {
-        type: "PLAYING"
-    });
+    bot.user.setActivity("acry$ help | v1.0.10 | " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
 });
 
 bot.commands = new Discord.Collection();
@@ -33,11 +31,16 @@ fs.readdir("./cmds/", (err, files) => {
         return;
     }
     console.log(`> loaded ${jsfiles.length} commands.`);
+    
+    var commandsJson = [];
 
-    jsfiles.forEach((f, i) => {
+    jsfiles.forEach((f) => {
         let prop = require(`./cmds/${f}`);
         bot.commands.set(f, prop);
+        commandsJson.push(prop.help);
     });
+
+    jt.saveToFile(commandsJson, "./json/commands.json", "\t");
 });
 
 bot.on("voiceStateUpdate", async (oldState, newState) => {
@@ -65,7 +68,7 @@ bot.on("guildMemberAdd", async member => {
 });
 
 bot.on("message", async msg => {
-    validVerify(msg);
+    utils.validVerify(msg);
     //hurensohn code
     //utils.antiraid(msg.channel, msg);
     if (!msg.content.startsWith(prefix)) return;
@@ -77,30 +80,5 @@ bot.on("message", async msg => {
     let command = bot.commands.get(cmd + ".js");
     if (command) command.run(bot, msg, args);
 });
-
-function validVerify(msg) {
-	try {
-		jt.parseFile('json/servers/verification/' + bot.guilds.cache.get(msg.guild.id) + '_channel.json', (error, data) => {
-			if (error) return;
-			if (data.toString().includes(msg.channel.id)) {
-				if (msg.author.id != bot.user.id) {
-					msg.delete();
-					if (msg.content == 'verify') {
-						jt.parseFile('json/servers/verification/' + bot.guilds.cache.get(msg.guild.id) + '_role.json', (error, data) => {
-							if (error) {
-								msg.channel.send({
-									embed: embeds.errorEmbed("A role for verification hasn't been set up yet. Please contact an administrator or moderator of this server.", msg.author.avatarURL(), msg.author.tag)
-								}).then(async msg => msg.delete({timeout: 2000}));
-								return;
-							}
-							let role = (msg.member.guild.roles.cache.find(role => role.name === data.toString()));
-							msg.member.roles.add(role);
-						});
-					}
-				}
-			}
-		});
-	} catch {}
-}
 
 bot.login(process.env.TOKEN);
