@@ -3,6 +3,7 @@ const { config } = require("dotenv");
 const jt = require("json-toolkit");
 const fs = require('fs');
 const utils = require('./utils/utils.js');
+const embeds = require('./utils/embeds.js')
 const botSettings = JSON.parse(fs.readFileSync('./json/settings.json'))
 var prefix = botSettings.prefix;
 
@@ -14,57 +15,70 @@ config({
 
 bot.on('ready', () => {
     console.log("> bot started");
-    console.log("> status: acry$ help | online on " + bot.guilds.cache.size + " servers");
+    console.log("> status: acry$ help | v1.0.10 | " + bot.guilds.cache.size + " servers");
     bot.user.setStatus("online");
-    bot.user.setActivity("acry$ help | online on " + bot.guilds.cache.size + " servers", { type: "WATCHING" });
+    bot.user.setActivity("acry$ help | v1.0.10 | " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
 });
 
 bot.commands = new Discord.Collection();
 
 fs.readdir("./cmds/", (err, files) => {
-  if (err) console.error(err);
+    if (err) console.error(err);
 
-  let jsfiles = files.filter(f => f.split(".").pop() === "js");
-  if(jsfiles <= 0) {
-    console.log("> Error: No commands to load!");
-    return;
-  }
-  console.log(`> loaded ${jsfiles.length} commands.`);
+    let jsfiles = files.filter(f => f.split(".").pop() === "js");
+    if (jsfiles <= 0) {
+        console.log("> Error: No commands to load!");
+        return;
+    }
+    console.log(`> loaded ${jsfiles.length} commands.`);
+    
+    var commandsJson = [];
 
-  jsfiles.forEach((f, i) => {
-    let prop = require(`./cmds/${f}`);
-    bot.commands.set(f, prop);
-  });
+    jsfiles.forEach((f) => {
+        let prop = require(`./cmds/${f}`);
+        bot.commands.set(f, prop);
+        commandsJson.push(prop.help);
+    });
+
+    jt.saveToFile(commandsJson, "./json/commands.json", "\t");
 });
 
 bot.on("voiceStateUpdate", async (oldState, newState) => {
-  jt.parseFile('json/servers/blacklists/' + newState.guild.id + '_voice.json', (error, data) => {
-    const index = data.indexOf(String(newState.id));
-    if (index > -1) {
-      newState.kick();
-    }
-  });
+	try {
+		jt.parseFile('json/servers/blacklists/' + newState.guild.id + '_voice.json', (error, data) => {
+			if(error) return;
+			const index = data.indexOf(String(newState.id));
+			if (index > -1) {
+				newState.kick();
+			}
+		});
+	} catch {}
 });
 
 bot.on("guildMemberAdd", async member => {
-  jt.parseFile('json/servers/blacklists/' + member.guild.id + '_server.json', (error, data) => {
-    const index = data.indexOf(String(member.id));
-    if (index > -1) {
-      member.kick();
-    }
-  });
+	try {
+		jt.parseFile('json/servers/blacklists/' + member.guild.id + '_server.json', (error, data) => {
+			if(error) return;
+			const index = data.indexOf(String(member.id));
+			if (index > -1) {
+				member.kick();
+			}
+		});
+	} catch {}
 });
 
 bot.on("message", async msg => {
-  validVerify(msg);
-  if (!msg.content.startsWith(prefix)) return;
-  if(msg.author.bot) return;
+    utils.validVerify(msg);
+    //hurensohn code
+    //utils.antiraid(msg.channel, msg);
+    if (!msg.content.startsWith(prefix)) return;
+    if (msg.author.bot) return;
 
-  const args = msg.content.slice(prefix.length).split(' ');
-  const cmd = args.shift().toLowerCase();
+    const args = msg.content.slice(prefix.length).split(/ +/);
+    const cmd = args.shift().toLowerCase();
 
-  let command = bot.commands.get(cmd + ".js");
-  if(command) command.run(bot, msg, args);
+    let command = bot.commands.get(cmd + ".js");
+    if (command) command.run(bot, msg, args);
 });
 
 function validVerify(msg){

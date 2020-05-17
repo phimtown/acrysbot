@@ -4,10 +4,14 @@ const embeds = require('../utils/embeds.js');
 
 module.exports.run = async (bot, msg, args) => {
   if (!msg.member.hasPermission("KICK_MEMBERS")) {
-    msg.channel.send({
-      embed: embeds.errorEmbed('No permissions!', msg.author.avatarURL(), msg.author.tag)
-  });
+    msg.channel.send({embed: embeds.errorEmbed('No permissions!', msg.author.avatarURL(), msg.author.tag)});
     return;
+  }
+  switch(args[0]) {
+    //todo: finish this when you didn't stay up until 8am to work on this
+    case "all": break;
+    case "voicejoin": break;
+    case "serverjoin": break;
   }
 };
 
