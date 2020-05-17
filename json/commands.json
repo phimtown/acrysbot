@@ -6,12 +6,6 @@
 		"category": "misc"
 	},
 	{
-		"name": "antiraid",
-		"arguments": "<enabled / disabled> [mpm]",
-		"description": "enable/disable antiraid. requires MANAGE_MESSAGES permission.",
-		"category": "moderation"
-	},
-	{
 		"name": "blacklist",
 		"arguments": "<voicejoin/serverjoin> <add/remove> <userid>",
 		"description": "blacklist or unblacklist someone from joining voicechat or a server. requires KICK_MEMBERS permission.",
@@ -31,8 +25,8 @@
 	},
 	{
 		"name": "claim",
-		"arguments": "<game char>",
-		"description": "claim a game character",
+		"arguments": "<char>",
+		"description": "claim a  character",
 		"category": "game"
 	},
 	{

@@ -69,8 +69,6 @@ bot.on("guildMemberAdd", async member => {
 
 bot.on("message", async msg => {
     utils.validVerify(msg);
-    //hurensohn code
-    //utils.antiraid(msg.channel, msg);
     if (!msg.content.startsWith(prefix)) return;
     if (msg.author.bot) return;
 
