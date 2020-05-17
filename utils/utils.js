@@ -14,7 +14,7 @@ module.exports = {
       console.log(data.toString());
     });
     const filter = m => m.content.includes('') || m.content.includes(' ');
-    const collector = channel.createMessageCollector(filter);
+    const collector = channel.createMessageCollector(filter, {time: 15000});
     var collected = 0;
 
     collector.on('collect', m => {
