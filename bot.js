@@ -6,6 +6,7 @@ const utils = require('./utils/utils.js');
 const embeds = require('./utils/embeds.js')
 const botSettings = JSON.parse(fs.readFileSync('./json/settings.json'))
 var prefix = botSettings.prefix;
+var commandsJson = [];
 
 const bot = new Discord.Client();
 
@@ -18,6 +19,7 @@ bot.on('ready', () => {
     console.log("> status: acry$ help | v1.0.11 | " + bot.guilds.cache.size + " servers");
     bot.user.setStatus("online");
     bot.user.setActivity("acry$ help | v1.0.11 | " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
+    jt.saveToFile(commandsJson, "./json/commands.json", "\t");
 });
 
 bot.commands = new Discord.Collection();
@@ -41,9 +43,7 @@ fs.readdir("./cmds/", (err) => {
             jsfiles.forEach(f => {
                 let prop = require(`./cmds/${dir}/${f}`);
                 bot.commands.set(f, prop);
-                var commandsJson = [];
                 commandsJson.push(prop.help);
-                jt.saveToFile(commandsJson, "./json/commands.json", "\t");
             });
         });
     });
