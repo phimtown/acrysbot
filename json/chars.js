@@ -3,5 +3,20 @@ module.exports.chars = [
     ["https://oyster.ignimgs.com/mediawiki/apis.ign.com/deltarune/9/96/Susie.jpg?width=640", "Susie"],
     ["https://i.pinimg.com/originals/c7/b9/88/c7b98896072e7f3bcfaed682f48adaa3.jpg", "Ralsei"],
     ["https://vignette.wikia.nocookie.net/undertale/images/4/44/Sansanimated.gif/revision/latest/scale-to-width-down/118?cb=20181110100334","Sans"],
-    ["https://vignette.wikia.nocookie.net/undertale/images/0/05/Flowey_battle_talk.gif/revision/latest/scale-to-width-down/90?cb=20151202211125","Flowey"]
+    ["https://vignette.wikia.nocookie.net/undertale/images/0/05/Flowey_battle_talk.gif/revision/latest/scale-to-width-down/90?cb=20151202211125","Flowey"],
+    ["https://vignette.wikia.nocookie.net/mario/images/d/d2/781px-Mario_New_Super_Mario_Bros_U_Deluxe.png", "Mario"],
+    ["https://vignette.wikia.nocookie.net/mario/images/a/a6/Princess_Peach_SMP.png/", "Peach"],
+    ["https://vignette.wikia.nocookie.net/mario/images/d/d8/Shy_Guy_TT.png/", "ShyGuy"],
+    ["https://vignette.wikia.nocookie.net/mario/images/8/8f/1200px-BowserNSMBUDX.png/revision/latest/top-crop/width/200/height/150?cb=20190620160446", "Bowser"],
+    ["https://vignette.wikia.nocookie.net/mario/images/4/46/Princess_daisy_MKT.png/revision/latest/top-crop/width/200/height/150?cb=20200101144759", "Daisy"],
+    ["https://vignette.wikia.nocookie.net/mario/images/9/9d/Luigi_%28Mario_Golf_World_Tour%29.png/revision/latest/scale-to-width-down/100?cb=20140504205407", "Luigi"],
+    ["https://vignette.wikia.nocookie.net/half-life/images/4/41/G-Man_Alyx_Trailer.jpg/revision/latest/top-crop/width/200/height/150?cb=20191122020607&path-prefix=en", "G-Man"],
+    ["https://vignette.wikia.nocookie.net/half-life/images/f/f3/Gordon_Freeman_%28Template%29.jpg/revision/latest/top-crop/width/200/height/150?cb=20191221105246&path-prefix=en", "Gordon"],
+    ["https://vignette.wikia.nocookie.net/half-life/images/a/a4/Chell_Portal.png/revision/latest/top-crop/width/200/height/150?cb=20120621160758&path-prefix=en", "Chell"],
+    ["https://vignette.wikia.nocookie.net/half-life/images/2/2e/Breen_upset.jpg/revision/latest/top-crop/width/200/height/150?cb=20200304071058&path-prefix=en", "WallanceBreen"],
+    ["https://vignette.wikia.nocookie.net/half-life/images/7/77/YoungAlyxVance.jpg/revision/latest/top-crop/width/200/height/150?cb=20200323221922&path-prefix=en", "Alyx"],
+    ["https://vignette.wikia.nocookie.net/half-life/images/6/6c/Barney_Calhoun_%28Template%29.jpg/revision/latest/top-crop/width/200/height/150?cb=20191221113101&path-prefix=en", "Barney"],
+    ["https://vignette.wikia.nocookie.net/characters/images/b/b3/SteveMinecraft.png/revision/latest/top-crop/width/200/height/150?cb=20160127082617", "Steve"],
+    ["https://vignette.wikia.nocookie.net/characters/images/b/b4/Herobrine.png/revision/latest/top-crop/width/200/height/150?cb=20180205181827", "Herobrine"],
+    [""]
 ];
