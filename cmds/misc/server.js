@@ -1,4 +1,4 @@
-const embeds = require('../utils/embeds');
+const embeds = require('../../utils/embeds');
 const Discord = require('discord.js');
 
 module.exports.run = async (bot, msg, args) => {

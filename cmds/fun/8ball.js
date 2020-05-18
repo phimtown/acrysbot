@@ -46,5 +46,5 @@ module.exports.help = {
   name: "8ball",
   arguments: "",
   description: "ask 8ball a question.",
-  category: "misc"
+  category: "fun"
 }

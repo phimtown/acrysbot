@@ -15,31 +15,38 @@ config({
 
 bot.on('ready', () => {
     console.log("> bot started");
-    console.log("> status: acry$ help | v1.0.10 | " + bot.guilds.cache.size + " servers");
+    console.log("> status: acry$ help | v1.0.11 | " + bot.guilds.cache.size + " servers");
     bot.user.setStatus("online");
-    bot.user.setActivity("acry$ help | v1.0.10 | " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
+    bot.user.setActivity("acry$ help | v1.0.11 | " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
 });
 
 bot.commands = new Discord.Collection();
 
-fs.readdir("./cmds/", (err, files) => {
+fs.readdir("./cmds/", (err) => {
     if (err) console.error(err);
 
-    let jsfiles = files.filter(f => f.split(".").pop() === "js");
-    if (jsfiles <= 0) {
-        console.log("> Error: No commands to load!");
-        return;
-    }
-    console.log(`> loaded ${jsfiles.length} commands.`);
-    
+    const dirs = source =>
+        fs.readdirSync(source, { withFileTypes: true })
+            .filter(dirent => dirent.isDirectory())
+            .map(dirent => dirent.name);
     var commandsJson = [];
-
-    jsfiles.forEach((f) => {
-        let prop = require(`./cmds/${f}`);
-        bot.commands.set(f, prop);
-        commandsJson.push(prop.help);
+    dirs("./cmds/").forEach(dir => {
+        fs.readdir("./cmds/" + dir + "/", (err, files) => {
+            let jsfiles = files.filter(f => f.split(".").pop() === "js");
+            if (jsfiles <= 0) {
+                console.log("> Error: No commands to load!");
+                return;
+            }
+            console.log(`> loaded ${jsfiles.length} commands.`);
+        
+            jsfiles.forEach((f) => {
+                let prop = require(`./cmds/${dir}/${f}`);
+                bot.commands.set(f, prop);
+                commandsJson.push(prop.help);
+                console.log(prop.help);
+            });
+        });
     });
-
     jt.saveToFile(commandsJson, "./json/commands.json", "\t");
 });
 

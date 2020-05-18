@@ -14,5 +14,5 @@ module.exports.help = {
   name: "fuck",
   arguments: "",
   description: "well.. says fuck you.",
-  category: "misc"
+  category: "fun"
 }

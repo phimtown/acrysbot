@@ -1,5 +1,5 @@
-const embeds = require('../utils/embeds');
-const { drops } = require('../json/drops');
+const embeds = require('../../utils/embeds');
+const { drops } = require('../../json/drops');
 const Discord = require('discord.js');
 
 module.exports.run = async (bot, msg, args) => {
@@ -46,5 +46,5 @@ module.exports.help = {
   name: "drop",
   arguments: "<1-10>",
   description: "drops a random rap line. optional: add argument to send 1-10 lines.",
-  category: "misc"
+  category: "fun"
 }

@@ -1,4 +1,4 @@
-const embeds = require('../utils/embeds');
+const embeds = require('../../utils/embeds');
 const Discord = require('discord.js');
 
 //todo: server cached market channels

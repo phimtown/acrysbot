@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const embeds = require('../utils/embeds.js');
+const embeds = require('../../utils/embeds.js');
 
 module.exports.run = async (bot, msg, args) => {
   if(args[0] != null) {
@@ -21,5 +21,5 @@ module.exports.help = {
   name: "stfu",
   arguments: "",
   description: "tell someone to shut the fuck up.",
-  category: "misc"
+  category: "fun"
 }

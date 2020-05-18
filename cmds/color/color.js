@@ -1,6 +1,6 @@
-const embeds = require('../utils/embeds.js');
-const roles = require('../utils/roles.js');
-const utils = require('../utils/utils.js');
+const embeds = require('../../utils/embeds.js');
+const roles = require('../../utils/roles.js');
+const utils = require('../../utils/utils.js');
 
 module.exports.run = async (bot, msg, args) => {
   if (args.length > 0) {

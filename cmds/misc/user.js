@@ -1,4 +1,4 @@
-const embeds = require('../utils/embeds');
+const embeds = require('../../utils/embeds');
 
 module.exports.run = async (bot, msg, args) => {
   try {

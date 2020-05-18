@@ -14,5 +14,5 @@ module.exports.help = {
   name: "help",
   arguments: "",
   description: "lists all commands.",
-  category: "help"
+  category: "misc"
 }

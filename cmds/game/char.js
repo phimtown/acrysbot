@@ -1,5 +1,5 @@
-const {chars} = require('../json/chars');
-const embeds = require('../utils/embeds');
+const {chars} = require('../../json/chars');
+const embeds = require('../../utils/embeds');
 const Discord = require("discord.js");
 const fs = require('fs');
 

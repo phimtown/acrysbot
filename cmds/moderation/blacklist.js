@@ -1,7 +1,7 @@
 const Discord = require("discord.js");
 const jt = require("json-toolkit");
 const fs = require('fs');
-const embeds = require('../utils/embeds.js');
+const embeds = require('../../utils/embeds.js');
 
 module.exports.run = async (bot, msg, args) => {
   if (!msg.member.hasPermission("KICK_MEMBERS")) {
