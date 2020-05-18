@@ -14,7 +14,7 @@ module.exports.run = async (bot, msg, args) => {
             console.log(err)
 
             if (!(data.toString().includes(args.toString()))) {
-                if (chars.toString().includes(args.toString())) {
+                if (JSON.stringify(chars).includes(args.toString())) {
                     fs.appendFile('json/game/claimed.json', JSON.stringify(args), (err) => {
                         if (err) throw err
                         console.log(err);
@@ -31,7 +31,7 @@ module.exports.run = async (bot, msg, args) => {
                         });
                     });
                 } else {
-                    msg.channel.send('Whoop whoop');
+                    msg.channel.send('Character not found.')
                 }
             } else {
                 msg.channel.send('That character is already claimed.');
@@ -42,7 +42,7 @@ module.exports.run = async (bot, msg, args) => {
 
 module.exports.help = {
     name: "claim",
-    arguments: "<game char>",
-    description: "claim a game character",
+    arguments: "<char>",
+    description: "claim a  character",
     category: "game"
 }

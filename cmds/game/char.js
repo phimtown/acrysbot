@@ -23,7 +23,6 @@ module.exports.run = async (bot, msg, args) => {
                 .setTimestamp()
                 .setFooter(msg.author.tag, msg.author.avatarURL())
                 .addField('Status: ', status)
-                .setDescription(chars[charI][2])
                 .setImage(chars[charI][0]);
             msg.channel.send(embed);
         }
