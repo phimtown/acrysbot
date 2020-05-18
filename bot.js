@@ -29,7 +29,6 @@ fs.readdir("./cmds/", (err) => {
         fs.readdirSync(source, { withFileTypes: true })
             .filter(dirent => dirent.isDirectory())
             .map(dirent => dirent.name);
-    var commandsJson = [];
     dirs("./cmds/").forEach(dir => {
         fs.readdir("./cmds/" + dir + "/", (err, files) => {
             let jsfiles = files.filter(f => f.split(".").pop() === "js");
@@ -39,15 +38,15 @@ fs.readdir("./cmds/", (err) => {
             }
             console.log(`> loaded ${jsfiles.length} commands.`);
         
-            jsfiles.forEach((f) => {
+            jsfiles.forEach(f => {
                 let prop = require(`./cmds/${dir}/${f}`);
                 bot.commands.set(f, prop);
+                var commandsJson = [];
                 commandsJson.push(prop.help);
-                console.log(prop.help);
+                jt.saveToFile(commandsJson, "./json/commands.json", "\t");
             });
         });
     });
-    jt.saveToFile(commandsJson, "./json/commands.json", "\t");
 });
 
 bot.on("voiceStateUpdate", async (oldState, newState) => {
@@ -88,4 +87,4 @@ bot.on("message", async msg => {
     if (command) command.run(bot, msg, args);
 });
 
-bot.login(process.env.TOKEN);
+bot.login(process.env.TOKENDEV);

@@ -10,7 +10,9 @@ module.exports.run = async (bot, msg, args) => {
   switch(args[0]) {
     //todo: finish this when you didn't stay up until 8am to work on this
     case "all": break;
-    case "voicejoin": break;
+    case "voicejoin": 
+      
+    break;
     case "serverjoin": break;
   }
 };
