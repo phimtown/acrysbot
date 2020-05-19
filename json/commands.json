@@ -54,24 +54,6 @@
 		"category": "fun"
 	},
 	{
-		"name": "offer",
-		"arguments": "<title> <desc> <price> <currency> [image]",
-		"description": "creates an offer in the current channel\n- currency as text [e.G. EUR]\n- image optional using url or attatchment",
-		"category": "market"
-	},
-	{
-		"name": "char",
-		"arguments": "",
-		"description": "returns a random available character",
-		"category": "game"
-	},
-	{
-		"name": "claim",
-		"arguments": "<char>",
-		"description": "claim a  character",
-		"category": "game"
-	},
-	{
 		"name": "help",
 		"arguments": "",
 		"description": "lists all commands.",
@@ -96,10 +78,16 @@
 		"category": "misc"
 	},
 	{
-		"name": "antiraid",
-		"arguments": "<enabled / disabled> [mpm]",
-		"description": "enable/disable antiraid. requires MANAGE_MESSAGES permission.",
-		"category": "moderation"
+		"name": "char",
+		"arguments": "",
+		"description": "returns a random available character",
+		"category": "game"
+	},
+	{
+		"name": "claim",
+		"arguments": "<char>",
+		"description": "claim a  character",
+		"category": "game"
 	},
 	{
 		"name": "blacklist",
@@ -109,7 +97,7 @@
 	},
 	{
 		"name": "blacklisted",
-		"arguments": "<all/voicejoin/serverjoin>",
+		"arguments": "<voicejoin/serverjoin>",
 		"description": "list the blacklisted users on a server. requires KICK_MEMBERS permission.",
 		"category": "moderation"
 	},

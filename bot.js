@@ -16,9 +16,9 @@ config({
 
 bot.on('ready', () => {
     console.log("> bot started");
-    console.log("> status: acry$ help | v1.0.11 | " + bot.guilds.cache.size + " servers");
+    console.log("> status: acry$ help | v1.1 | " + bot.guilds.cache.size + " servers");
     bot.user.setStatus("online");
-    bot.user.setActivity("acry$ help | v1.0.11 | " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
+    bot.user.setActivity("acry$ help | v1.1 | " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
     jt.saveToFile(commandsJson, "./json/commands.json", "\t");
 });
 
@@ -38,13 +38,17 @@ fs.readdir("./cmds/", (err) => {
                 console.log("> Error: No commands to load!");
                 return;
             }
-            console.log(`> loaded ${jsfiles.length} commands.`);
+
+            var names = [];
         
             jsfiles.forEach(f => {
                 let prop = require(`./cmds/${dir}/${f}`);
                 bot.commands.set(f, prop);
                 commandsJson.push(prop.help);
+                names.push(prop.help.name);
             });
+            
+            console.log(`> loaded ${jsfiles.length} commands: ${names}`);
         });
     });
 });
@@ -74,7 +78,7 @@ bot.on("guildMemberAdd", async member => {
 });
 
 bot.on("message", async msg => {
-    utils.validVerify(msg);
+    utils.validVerify(msg, bot);
     if (!msg.content.startsWith(prefix)) return;
     if (msg.author.bot) return;
 
@@ -85,4 +89,4 @@ bot.on("message", async msg => {
     if (command) command.run(bot, msg, args);
 });
 
-bot.login(process.env.TOKENDEV);
+bot.login(process.env.TOKEN);
