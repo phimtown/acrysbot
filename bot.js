@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const { config } = require("dotenv");
+const version = '1.1';
 const jt = require("json-toolkit");
 const fs = require('fs');
 const utils = require('./utils/utils.js');
@@ -16,18 +17,18 @@ config({
 
 bot.on('ready', () => {
     console.log("> bot started");
-    console.log("> status: acry$ help | v1.1 | " + bot.guilds.cache.size + " servers");
+    console.log("> status: acry$ help | v" + version + " | " + bot.guilds.cache.size + " servers");
     bot.user.setStatus("online");
-    bot.user.setActivity("acry$ help | v1.1 | " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
+    bot.user.setActivity("acry$ help | v" + version + " | " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
     jt.saveToFile(commandsJson, "./json/commands.json", "\t");
 });
 
 bot.on('guildCreate', guild => {
-    bot.user.setActivity("acry$ help | v1.0.11 | " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
+    bot.user.setActivity("acry$ help | v" + version + "| " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
 });
 
 bot.on('guildDelete', guild => {
-    bot.user.setActivity("acry$ help | v1.0.11 | " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
+    bot.user.setActivity("acry$ help | v" + + version + " | " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
 });
 
 bot.commands = new Discord.Collection();
