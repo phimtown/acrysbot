@@ -34,17 +34,17 @@ module.exports.run = async (bot, msg, args) => {
                     } else {
                       msg.channel.send({
                           embed: embeds.errorEmbed("Channel not found!", msg.author.avatarURL(), msg.author.tag)
-                      });
+                      }).then(async msg => msg.delete({timeout: 5000}));
                     }
                   } else {
                     msg.channel.send({
                         embed: embeds.errorEmbed("Invalid <channelID>!", msg.author.avatarURL(), msg.author.tag)
-                    });
+                    }).then(async msg => msg.delete({timeout: 5000}));
                   }
               } else {
                 msg.channel.send({
                     embed: embeds.errorEmbed("Missing arguments! <channelID> expected.", msg.author.avatarURL(), msg.author.tag)
-                });
+                }).then(async msg => msg.delete({timeout: 5000}));
               }
               break;
               case "rolename":
@@ -73,19 +73,19 @@ module.exports.run = async (bot, msg, args) => {
                 } else {
                   msg.channel.send({
                       embed: embeds.errorEmbed("Role not found!", msg.author.avatarURL(), msg.author.tag)
-                  });
+                  }).then(async msg => msg.delete({timeout: 5000}));
                 }
               } else {
                 msg.channel.send({
                     embed: embeds.errorEmbed("Missing arguments! <role> expected (e.G. member).", msg.author.avatarURL(), msg.author.tag)
-                });
+                }).then(async msg => msg.delete({timeout: 5000}));
               }
               break;
             }
         } else {
             msg.channel.send({
                 embed: embeds.errorEmbed("Wrong syntax. Arguments <channel/rolename> <channelID/role> expected.", msg.author.avatarURL(), msg.author.tag)
-            });
+            }).then(async msg => msg.delete({timeout: 5000}));
         }
     }
 };

@@ -6,7 +6,7 @@ module.exports.run = async (bot, msg, args) => {
     if (!args.length) {
         msg.channel.send({
             embed: embeds.errorEmbed('Missing character.', msg.author.avatarURL(), msg.author.tag)
-        });
+        }).then(async msg => msg.delete({timeout: 5000}));
     } else {
 
         fs.readFile('json/game/claimed.json', (err, data) => {
@@ -31,10 +31,14 @@ module.exports.run = async (bot, msg, args) => {
                         });
                     });
                 } else {
-                    msg.channel.send('Character not found.')
+                    msg.channel.send({
+                        embed: embeds.errorEmbed('Character not found.', msg.author.avatarURL(), msg.author.tag)
+                    }).then(async msg => msg.delete({timeout: 5000}));
                 }
             } else {
-                msg.channel.send('That character is already claimed.');
+                msg.channel.send({
+                    embed: embeds.errorEmbed('That character is already claimed.', msg.author.avatarURL(), msg.author.tag)
+                }).then(async msg => msg.delete({timeout: 5000}));
             }
         });
     };

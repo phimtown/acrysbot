@@ -13,7 +13,7 @@ module.exports.run = async (bot, msg, args) => {
   } else {
     msg.channel.send({
         embed: embeds.errorEmbed("who am i supposed to tell to stfu?", msg.author.avatarURL(), msg.author.tag)
-    });
+    }).then(async msg => msg.delete({timeout: 5000}));
   }
 };
 

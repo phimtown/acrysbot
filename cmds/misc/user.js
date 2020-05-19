@@ -22,7 +22,7 @@ module.exports.run = async (bot, msg, args) => {
       console.log(TypeError);
       msg.channel.send({
           embed: embeds.errorEmbed('user not found.', msg.author.avatarURL(), msg.author.tag)
-      });
+      }).then(async msg => msg.delete({timeout: 5000}));
   }
 };
 

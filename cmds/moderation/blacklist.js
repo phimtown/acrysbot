@@ -7,7 +7,7 @@ module.exports.run = async (bot, msg, args) => {
   if (!msg.member.hasPermission("KICK_MEMBERS")) {
     msg.channel.send({
       embed: embeds.errorEmbed('No permissions!', msg.author.avatarURL(), msg.author.tag)
-  });
+  }).then(async msg => msg.delete({timeout: 5000}));
     return;
   }
   if(args.length > 0) {
@@ -25,12 +25,12 @@ module.exports.run = async (bot, msg, args) => {
                           if(error) {
                             msg.channel.send({
                                 embed: embeds.errorEmbed('An error occured while blacklisting ' + args[2] + ' from voice channels.', msg.author.avatarURL(), msg.author.tag)
-                            });
+                            }).then(async msg => msg.delete({timeout: 5000}));
                             return;
                           }
                           msg.channel.send({
                             embed: embeds.notifEmbed('Success!', args[2] + ' has been blacklisted from voice channels.', msg.author.avatarURL(), msg.author.tag)
-                          });
+                          }).then(async msg => msg.delete({timeout: 15000}));
                         });
                         return;
                       }
@@ -38,7 +38,7 @@ module.exports.run = async (bot, msg, args) => {
                         if(error) {
                           msg.channel.send({
                               embed: embeds.errorEmbed('An error occured while blacklisting ' + args[2] + ' from voice channels.', msg.author.avatarURL(), msg.author.tag)
-                          });
+                          }).then(async msg => msg.delete({timeout: 5000}));
                           return;
                         }
                         var json = data;
@@ -48,17 +48,17 @@ module.exports.run = async (bot, msg, args) => {
                             if(error) {
                               msg.channel.send({
                                   embed: embeds.errorEmbed('An error occured while blacklisting ' + args[2] + ' from voice channels.', msg.author.avatarURL(), msg.author.tag)
-                              });
+                              }).then(async msg => msg.delete({timeout: 5000}));
                               return;
                             }
                             msg.channel.send({
                               embed: embeds.notifEmbed('Success!', args[2] + ' has been blacklisted from voice channels.', msg.author.avatarURL(), msg.author.tag)
-                            });
+                            }).then(async msg => msg.delete({timeout: 15000}));
                           });
                         } else {
                           msg.channel.send({
                             embed: embeds.errorEmbed(args[2] + ' is already blacklisted from voice channels.', msg.author.avatarURL(), msg.author.tag)
-                          });
+                          }).then(async msg => msg.delete({timeout: 5000}));
                         }
                       });
                       break;
@@ -67,14 +67,14 @@ module.exports.run = async (bot, msg, args) => {
                         if (err) {
                             msg.channel.send({
                                 embed: embeds.errorEmbed('No one is blacklisted from voice channels yet!', msg.author.avatarURL(), msg.author.tag)
-                            });
+                            }).then(async msg => msg.delete({timeout: 5000}));
                             return;
                         }
                         jt.parseFile("json/servers/blacklists/" + msg.guild.id + "_voice.json", (error, data) => {
                           if (err) {
                             msg.channel.send({
                                 embed: embeds.errorEmbed('An error occured while unblacklisting ' + args[2] + ' from voice channels.', msg.author.avatarURL(), msg.author.tag)
-                            });
+                            }).then(async msg => msg.delete({timeout: 5000}));
                             return;
                           }
                           var json = data;
@@ -85,17 +85,17 @@ module.exports.run = async (bot, msg, args) => {
                               if(error) {
                                 msg.channel.send({
                                     embed: embeds.errorEmbed('An error occured while unblacklisting ' + args[2] + ' from voice channels.', msg.author.avatarURL(), msg.author.tag)
-                                });
+                                }).then(async msg => msg.delete({timeout: 5000}));
                                 return;
                               }
                               msg.channel.send({
                                 embed: embeds.notifEmbed('Success!', args[2] + ' has been unblacklisted from voice channels.', msg.author.avatarURL(), msg.author.tag)
-                              });
+                              }).then(async msg => msg.delete({timeout: 15000}));
                             });
                           } else {
                             msg.channel.send({
                               embed: embeds.errorEmbed(args[2] + ' is not blacklisted from voice channels.', msg.author.avatarURL(), msg.author.tag)
-                          });
+                          }).then(async msg => msg.delete({timeout: 5000}));
                           }
                         });
                       });
@@ -110,12 +110,12 @@ module.exports.run = async (bot, msg, args) => {
                           if(error) {
                             msg.channel.send({
                                 embed: embeds.errorEmbed('An error occured while blacklisting ' + args[2] + ' from joining the server.', msg.author.avatarURL(), msg.author.tag)
-                            });
+                            }).then(async msg => msg.delete({timeout: 5000}));
                             return;
                           }
                           msg.channel.send({
                             embed: embeds.notifEmbed('Success!', args[2] + ' has been blacklisted from joining the server.', msg.author.avatarURL(), msg.author.tag)
-                          });
+                          }).then(async msg => msg.delete({timeout: 15000}));
                         });
                         return;
                       }
@@ -123,7 +123,7 @@ module.exports.run = async (bot, msg, args) => {
                         if(error) {
                           msg.channel.send({
                               embed: embeds.errorEmbed('An error occured while blacklisting ' + args[2] + ' from joining the server.', msg.author.avatarURL(), msg.author.tag)
-                          });
+                          }).then(async msg => msg.delete({timeout: 5000}));
                           return;
                         }
                         var json = data;
@@ -133,17 +133,17 @@ module.exports.run = async (bot, msg, args) => {
                             if(error) {
                               msg.channel.send({
                                   embed: embeds.errorEmbed('An error occured while blacklisting ' + args[2] + ' from joining the server.', msg.author.avatarURL(), msg.author.tag)
-                              });
+                              }).then(async msg => msg.delete({timeout: 5000}));
                               return;
                             }
                             msg.channel.send({
                               embed: embeds.notifEmbed('Success!', args[2] + ' has been blacklisted from joining the server.', msg.author.avatarURL(), msg.author.tag)
-                            });
+                            }).then(async msg => msg.delete({timeout: 15000}));
                           });
                         } else {
                           msg.channel.send({
                             embed: embeds.errorEmbed(args[2] + ' is already blacklisted from joining the server.', msg.author.avatarURL(), msg.author.tag)
-                          });
+                          }).then(async msg => msg.delete({timeout: 5000}));
                         }
                       });
                       break;
@@ -152,14 +152,14 @@ module.exports.run = async (bot, msg, args) => {
                         if (err) {
                             msg.channel.send({
                                 embed: embeds.errorEmbed('No one is blacklisted from joining this server yet!', msg.author.avatarURL(), msg.author.tag)
-                            });
+                            }).then(async msg => msg.delete({timeout: 5000}));
                             return;
                         }
                         jt.parseFile("json/servers/blacklists/" + msg.guild.id + "_server.json", (error, data) => {
                           if (err) {
                             msg.channel.send({
                                 embed: embeds.errorEmbed('An error occured while unblacklisting ' + args[2] + ' from joining the server.', msg.author.avatarURL(), msg.author.tag)
-                            });
+                            }).then(async msg => msg.delete({timeout: 5000}));
                             return;
                           }
                           var json = data;
@@ -170,17 +170,17 @@ module.exports.run = async (bot, msg, args) => {
                               if(error) {
                                 msg.channel.send({
                                     embed: embeds.errorEmbed('An error occured while unblacklisting ' + args[2] + ' from joining the server.', msg.author.avatarURL(), msg.author.tag)
-                                });
+                                }).then(async msg => msg.delete({timeout: 5000}));
                                 return;
                               }
                               msg.channel.send({
                                 embed: embeds.notifEmbed('Success!', args[2] + ' has been unblacklisted from joining the server.', msg.author.avatarURL(), msg.author.tag)
-                              });
+                              }).then(async msg => msg.delete({timeout: 15000}));
                             });
                           } else {
                             msg.channel.send({
                               embed: embeds.errorEmbed(args[2] + ' is not blacklisted from joining the server.', msg.author.avatarURL(), msg.author.tag)
-                          });
+                          }).then(async msg => msg.delete({timeout: 5000}));
                           }
                         });
                       });
@@ -189,22 +189,22 @@ module.exports.run = async (bot, msg, args) => {
                 break;
               }
             } else {
-              msg.channel.send({embed: embeds.errorEmbed('Please specify a proper user id!. Syntax: acry$ blacklist <voicejoin/serverjoin> <add/remove> <userid>', msg.author.avatarURL(), msg.author.tag)});
+              msg.channel.send({embed: embeds.errorEmbed('Please specify a proper user id!. Syntax: acry$ blacklist <voicejoin/serverjoin> <add/remove> <userid>', msg.author.avatarURL(), msg.author.tag)}).then(async msg => msg.delete({timeout: 5000}));
             }
           } else {
-            msg.channel.send({embed: embeds.errorEmbed('Please specify if you are adding or removing a blacklist. Syntax: acry$ blacklist <voicejoin/serverjoin> <add/remove> <userid>', msg.author.avatarURL(), msg.author.tag)});
+            msg.channel.send({embed: embeds.errorEmbed('Please specify if you are adding or removing a blacklist. Syntax: acry$ blacklist <voicejoin/serverjoin> <add/remove> <userid>', msg.author.avatarURL(), msg.author.tag)}).then(async msg => msg.delete({timeout: 5000}));
           }
         } else {
-          msg.channel.send({embed: embeds.errorEmbed('Please specify if you are blacklisting a server or voice join. Syntax: acry$ blacklist <voicejoin/serverjoin> <add/remove> <userid>', msg.author.avatarURL(), msg.author.tag)});
+          msg.channel.send({embed: embeds.errorEmbed('Please specify if you are blacklisting a server or voice join. Syntax: acry$ blacklist <voicejoin/serverjoin> <add/remove> <userid>', msg.author.avatarURL(), msg.author.tag)}).then(async msg => msg.delete({timeout: 5000}));
         }
       } else {
-        msg.channel.send({embed: embeds.errorEmbed('Not enough arguments specified! Missing <userid>', msg.author.avatarURL(), msg.author.tag)});
+        msg.channel.send({embed: embeds.errorEmbed('Not enough arguments specified! Missing <userid>', msg.author.avatarURL(), msg.author.tag)}).then(async msg => msg.delete({timeout: 5000}));
       }
     } else {
-      msg.channel.send({embed: embeds.errorEmbed('Not enough arguments specified! Missing <add/remove> <userid>', msg.author.avatarURL(), msg.author.tag)});
+      msg.channel.send({embed: embeds.errorEmbed('Not enough arguments specified! Missing <add/remove> <userid>', msg.author.avatarURL(), msg.author.tag)}).then(async msg => msg.delete({timeout: 5000}));
     }
   } else {
-    msg.channel.send({embed: embeds.errorEmbed('No arguments specified! Missing <voicejoin/serverjoin> <add/remove> <userid>', msg.author.avatarURL(), msg.author.tag)});
+    msg.channel.send({embed: embeds.errorEmbed('No arguments specified! Missing <voicejoin/serverjoin> <add/remove> <userid>', msg.author.avatarURL(), msg.author.tag)}).then(async msg => msg.delete({timeout: 5000}));
   }
 };
 

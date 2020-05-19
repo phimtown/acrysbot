@@ -102,6 +102,12 @@
 		"category": "moderation"
 	},
 	{
+		"name": "clear",
+		"arguments": "<amount>",
+		"description": "clear x amount of messages. requires MANAGE_MESSAGES permission.",
+		"category": "moderation"
+	},
+	{
 		"name": "verification",
 		"arguments": "<channel/rolename> <channelID>",
 		"description": "adds verification to channel or selects role for verification. requires MANAGE_CHANNELS permission.",

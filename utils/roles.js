@@ -17,17 +17,17 @@ module.exports = {
                     .catch(console.error);
                 msg.channel.send({
                     embed: embeds.warningEmbed('This color is being used for the first time and has just been created. Please execute the exactly same command again.', msg.author.avatarURL(), msg.author.tag)
-                });
+                }).then(async msg => msg.delete({timeout: 10000}));
             } else {
                 msg.member.roles.add(role);
                 msg.channel.send({
                     embed: embeds.notifEmbed('Success!', 'A color role has been assigned to you.', msg.author.avatarURL(), msg.author.tag)
-                });
+                }).then(async msg => msg.delete({timeout: 10000}));
             }
         } else {
             msg.channel.send({
                 embed: embeds.errorEmbed('You already have that role!', msg.author.avatarURL(), msg.author.tag)
-            });
+            }).then(async msg => msg.delete({timeout: 5000}));
         }
     },
     removeRole: function removeRole(roleName, msg) {
@@ -36,11 +36,11 @@ module.exports = {
             msg.member.roles.remove(role);
             msg.channel.send({
                 embed: embeds.notifEmbed('Success!', 'A color role has been removed from you.', msg.author.avatarURL(), msg.author.tag)
-            });
+            }).then(async msg => msg.delete({timeout: 10000}));
         } else {
             msg.channel.send({
                 embed: embeds.errorEmbed('You don\'t have that color role!', msg.author.avatarURL(), msg.author.tag)
-            });
+            }).then(async msg => msg.delete({timeout: 5000}));
         }
     }
 };

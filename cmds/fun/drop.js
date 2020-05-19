@@ -20,19 +20,19 @@ module.exports.run = async (bot, msg, args) => {
               } else {
                   msg.channel.send({
                       embed: embeds.errorEmbed('Specified arguments cannot be more than 10.', msg.author.avatarURL(), msg.author.tag)
-                  });
+                  }).then(async msg => msg.delete({timeout: 5000}));
                   return;
               }
           } else {
               msg.channel.send({
                   embed: embeds.errorEmbed('Specified arguments cannot be less than 1.', msg.author.avatarURL(), msg.author.tag)
-              });
+              }).then(async msg => msg.delete({timeout: 5000}));
               return;
           }
       } else {
           msg.channel.send({
               embed: embeds.errorEmbed('Specified arguments are not a number.', msg.author.avatarURL(), msg.author.tag)
-          });
+          }).then(async msg => msg.delete({timeout: 5000}));
           return;
       }
   } else {

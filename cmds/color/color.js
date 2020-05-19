@@ -54,14 +54,14 @@ module.exports.run = async (bot, msg, args) => {
               } else {
                   msg.channel.send({
                       embed: embeds.errorEmbed('Provided hex color code is invalid. Use \'acry$ help color\'.', msg.author.avatarURL(), msg.author.tag)
-                  });
+                  }).then(async msg => msg.delete({timeout: 5000}));
               }
               break;
       }
   } else {
       msg.channel.send({
           embed: embeds.errorEmbed('No color provided. Use \'acry$ help color\'.', msg.author.avatarURL(), msg.author.tag)
-      });
+      }).then(async msg => msg.delete({timeout: 5000}));
   }
 };
 

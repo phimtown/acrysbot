@@ -18,7 +18,7 @@ module.exports.run = async (bot, msg, args) => {
 			console.log(TypeError);
 			msg.channel.send({
 				embed: embeds.errorEmbed('Guild not found.', msg.author.avatarURL(), msg.author.tag)
-			});
+			}).then(async msg => msg.delete({timeout: 5000}));
 		}
 	}
 
@@ -30,7 +30,7 @@ module.exports.run = async (bot, msg, args) => {
 			.addField('Created on: ', mainguild.createdAt)
 			.addField('Members: ', mainguild.memberCount)
 			.setDescription(mainguild.name);
-		msg.channel.send(embed);
+		msg.channel.send(embed).then(async msg => msg.delete({timeout: 30000}));;
 	}
 };
 

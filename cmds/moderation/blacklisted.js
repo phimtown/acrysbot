@@ -7,7 +7,7 @@ module.exports.run = async(bot, msg, args) => {
   if (!msg.member.hasPermission("KICK_MEMBERS")) {
     msg.channel.send({
       embed: embeds.errorEmbed('No permissions!', msg.author.avatarURL(), msg.author.tag)
-    });
+    }).then(async msg => msg.delete({timeout: 5000}));
     return;
   }
   switch (args[0]) {
@@ -38,7 +38,7 @@ module.exports.run = async(bot, msg, args) => {
             if (args[1] > voiceArray.length) {
               msg.channel.send({
                 embed: embeds.errorEmbed('That page doesn\'t exist!', msg.author.avatarURL(), msg.author.tag)
-              });
+              }).then(async msg => msg.delete({timeout: 5000}));
             } else {
               const embed = new Discord.MessageEmbed()
                 .setTimestamp()
@@ -58,7 +58,7 @@ module.exports.run = async(bot, msg, args) => {
       } else {
         msg.channel.send({
           embed: embeds.errorEmbed('There are no users blacklisted from voice chat!', msg.author.avatarURL(), msg.author.tag)
-        });
+        }).then(async msg => msg.delete({timeout: 5000}));
       }
       break;
     case "serverjoin":
@@ -88,7 +88,7 @@ module.exports.run = async(bot, msg, args) => {
             if (args[1] > serverArray.length) {
               msg.channel.send({
                 embed: embeds.errorEmbed('That page doesn\'t exist!', msg.author.avatarURL(), msg.author.tag)
-              });
+              }).then(async msg => msg.delete({timeout: 5000}));
             } else {
               const embed = new Discord.MessageEmbed()
                 .setTimestamp()
@@ -108,7 +108,7 @@ module.exports.run = async(bot, msg, args) => {
       } else {
         msg.channel.send({
           embed: embeds.errorEmbed('There are no users blacklisted from joining the server!', msg.author.avatarURL(), msg.author.tag)
-        });
+        }).then(async msg => msg.delete({timeout: 5000}));
       }
       break;
   }

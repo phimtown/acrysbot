@@ -7,7 +7,7 @@ module.exports.run = async (bot, msg, args) => {
     .setFooter(msg.author.tag, msg.author.avatarURL())
     .setAuthor("Acrys commands", bot.user.avatarURL(), "https://acrysbot.xyz/commands")
     .addField("link to the commands list.", "https://acrysbot.xyz/commands");
-    msg.channel.send(embed);
+    msg.channel.send(embed).then(async msg => msg.delete({timeout: 15000}));
 };
 
 module.exports.help = {
