@@ -54,6 +54,18 @@
 		"category": "fun"
 	},
 	{
+		"name": "char",
+		"arguments": "",
+		"description": "returns a random available character",
+		"category": "game"
+	},
+	{
+		"name": "claim",
+		"arguments": "<char>",
+		"description": "claim a  character",
+		"category": "game"
+	},
+	{
 		"name": "help",
 		"arguments": "",
 		"description": "lists all commands.",
@@ -78,18 +90,6 @@
 		"category": "misc"
 	},
 	{
-		"name": "char",
-		"arguments": "",
-		"description": "returns a random available character",
-		"category": "game"
-	},
-	{
-		"name": "claim",
-		"arguments": "<char>",
-		"description": "claim a  character",
-		"category": "game"
-	},
-	{
 		"name": "blacklist",
 		"arguments": "<voicejoin/serverjoin> <add/remove> <userid>",
 		"description": "blacklist or unblacklist someone from joining voicechat or a server. requires KICK_MEMBERS permission.",
@@ -104,7 +104,7 @@
 	{
 		"name": "verification",
 		"arguments": "<channel/rolename> <channelID>",
-		"description": "adds verification to channel or selects role for verification.",
+		"description": "adds verification to channel or selects role for verification. requires MANAGE_CHANNELS permission.",
 		"category": "moderation"
 	}
 ]

@@ -93,6 +93,6 @@ module.exports.run = async (bot, msg, args) => {
 module.exports.help = {
     name: "verification",
     arguments: "<channel/rolename> <channelID>",
-    description: "adds verification to channel or selects role for verification.",
+    description: "adds verification to channel or selects role for verification. requires MANAGE_CHANNELS permission.",
     category: "moderation"
 }
