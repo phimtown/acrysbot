@@ -1,6 +1,7 @@
 const chars = require('../../json/chars');
 const fs = require('fs');
 const Discord = require('discord.js');
+const embeds = require('../../utils/embeds');
 
 module.exports.run = async (bot, msg, args) => {
     if (!args.length) {
