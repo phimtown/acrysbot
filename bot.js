@@ -24,7 +24,7 @@ bot.on('ready', () => {
 });
 
 bot.on('guildCreate', guild => {
-    bot.user.setActivity("acry$ help | v" + version + "| " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
+    bot.user.setActivity("acry$ help | v" + version + " | " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
 });
 
 bot.on('guildDelete', guild => {
