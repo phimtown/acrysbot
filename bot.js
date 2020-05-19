@@ -98,4 +98,4 @@ bot.on("message", async msg => {
     if (command) command.run(bot, msg, args);
 });
 
-bot.login(process.env.TOKEN);
+bot.login(process.env.TOKENDEV);

@@ -11,7 +11,7 @@ module.exports.run = async (bot, msg, args) => {
           .setTimestamp()
           .setThumbnail(__user__.avatarURL())
           .addField('Joined guild on: ', user.joinedAt)
-          .addField('Presence: ', JSON.stringify(__user__.presence.status).toLowerCase())
+          .addField('Online status: ', JSON.stringify(__user__.presence.status).toLowerCase())
           .addField('Created account: ', __user__.createdAt)
           .addField('Last message: ', user.lastMessageID)
           .addField('ClientID: ', __user__.id)
