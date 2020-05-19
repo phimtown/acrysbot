@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const { config } = require("dotenv");
-const version = '1.1.1';
 const jt = require("json-toolkit");
 const fs = require('fs');
 const utils = require('./utils/utils.js');
@@ -28,7 +27,7 @@ bot.on('guildCreate', guild => {
 });
 
 bot.on('guildDelete', guild => {
-    bot.user.setActivity("acry$ help | v" + + version + " | " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
+    bot.user.setActivity("acry$ help | v" + version + " | " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
 });
 
 bot.commands = new Discord.Collection();

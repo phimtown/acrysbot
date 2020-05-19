@@ -87,6 +87,10 @@ module.exports.run = async (bot, msg, args) => {
                 embed: embeds.errorEmbed("Wrong syntax. Arguments <channel/rolename> <channelID/role> expected.", msg.author.avatarURL(), msg.author.tag)
             }).then(async msg => msg.delete({timeout: 5000}));
         }
+    } else {
+      msg.channel.send({
+        embed: embeds.errorEmbed('No permissions!', msg.author.avatarURL(), msg.author.tag)
+      }).then(async msg => msg.delete({timeout: 5000}));
     }
 };
 

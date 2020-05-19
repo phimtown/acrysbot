@@ -2,8 +2,11 @@ const embeds = require('../../utils/embeds.js')
 
 module.exports.run = async (bot, msg, args) => {
     if (!msg.member.hasPermission("MANAGE_MESSAGES")) {
+        msg.channel.send({
+          embed: embeds.errorEmbed('No permissions!', msg.author.avatarURL(), msg.author.tag)
+      }).then(async msg => msg.delete({timeout: 5000}));
         return;
-    }
+      }
     if(args[0] == null || isNaN(args[0])) {
         msg.channel.send({
             embed: embeds.errorEmbed('Invalid syntax! Use acry$ clear <amount>', msg.author.avatarURL(), msg.author.tag)
