@@ -1,4 +1,4 @@
-# acrysbot
+# acrysbot v1.1
 discord bot project  
 please don't skid, thank you. we're happy if you can learn something from our code though.
 
