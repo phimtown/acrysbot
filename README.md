@@ -10,8 +10,8 @@ github/kyud - design
 
 # invite link
 
-~~note: this bot is not optimized to be used with multiple servers yet.~~
-acrys is now optimized and released! please get it onto your server <3
+~~note: this bot is not optimized to be used with multiple servers yet.~~  
+acrys is now optimized and released! please get it onto your server <3  
 https://acrysbot.xyz/acrysinvite
 
 # development discord
