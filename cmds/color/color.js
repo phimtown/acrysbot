@@ -4,6 +4,7 @@ const utils = require('../../utils/utils.js');
 
 module.exports.run = async (bot, msg, args) => {
   if (args.length > 0) {
+      try {
       switch (args[0]) {
           case "alizarin":
               roles.addRole("alizarin", msg, 0xe74c3c);
@@ -58,6 +59,12 @@ module.exports.run = async (bot, msg, args) => {
               }
               break;
       }
+    } catch {
+        msg.channel.send({
+            embed: embeds.errorEmbed('An error occured. For colors to work, the bots default role has to be all the way in the top of the role list. Contact an administrator of this discord server.', msg.author.avatarURL(), msg.author.tag)
+        }).then(async msg => msg.delete({timeout: 5000}));
+        return;
+    }
   } else {
       msg.channel.send({
           embed: embeds.errorEmbed('No color provided. Use \'acry$ help color\'.', msg.author.avatarURL(), msg.author.tag)
