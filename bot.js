@@ -22,6 +22,14 @@ bot.on('ready', () => {
     jt.saveToFile(commandsJson, "./json/commands.json", "\t");
 });
 
+bot.on('guildCreate', guild => {
+    bot.user.setActivity("acry$ help | v1.0.11 | " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
+});
+
+bot.on('guildDelete', guild => {
+    bot.user.setActivity("acry$ help | v1.0.11 | " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
+});
+
 bot.commands = new Discord.Collection();
 
 fs.readdir("./cmds/", (err) => {
