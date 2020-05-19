@@ -7,8 +7,10 @@ module.exports.run = async (bot, msg, args) => {
     var charI = Math.floor(Math.random() * chars.length);
 
     fs.readFile('json/game/claimed.json', (err, data) => {
-        if (err) throw err
-        console.log(err)
+        if (err) {
+            console.log(err);
+        }
+        
 
         if (!data.toString().includes(chars[charI][1])) {
             throwEmbed("Unclaimed");

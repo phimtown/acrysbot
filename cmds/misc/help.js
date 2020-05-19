@@ -5,7 +5,7 @@ module.exports.run = async (bot, msg, args) => {
     .setColor(4889423)
     .setTimestamp()
     .setFooter(msg.author.tag, msg.author.avatarURL())
-    .setAuthor("acrys//bot commands", bot.user.avatarURL(), "https://acrysbot.xyz/commands")
+    .setAuthor("Acrys commands", bot.user.avatarURL(), "https://acrysbot.xyz/commands")
     .addField("link to the commands list.", "https://acrysbot.xyz/commands");
     msg.channel.send(embed);
 };

@@ -49,8 +49,16 @@ module.exports.run = async (bot, msg, args) => {
               break;
               case "rolename":
               if(args[1] != null) {
-                if(msg.member.guild.roles.cache.find(role => role.name === args[1])) {
-                  jt.saveToFile(args[1], 'json/servers/verification/' + bot.guilds.cache.get(msg.guild.id) + '_role.json', '\t', (error) => {
+                var roleName = "";
+                for(var i = 1; i < args.length; i++) {
+                  if(i != 1) {
+                    roleName += " " + args[i];
+                  } else {
+                    roleName += args[i];
+                  }
+                }
+                if(msg.member.guild.roles.cache.find(role => role.name === roleName)) {
+                  jt.saveToFile(roleName, 'json/servers/verification/' + bot.guilds.cache.get(msg.guild.id) + '_role.json', '\t', (error) => {
                     if(error) {
                       console.log(error);
                       return;
@@ -59,7 +67,7 @@ module.exports.run = async (bot, msg, args) => {
                   const embed = new Discord.MessageEmbed()
                       .setTimestamp()
                       .setDescription('Verification role')
-                      .addField('The verification role has been set to', args[1])
+                      .addField('The verification role has been set to', roleName)
                       .setColor();
                   msg.channel.send(embed);
                 } else {
@@ -85,6 +93,6 @@ module.exports.run = async (bot, msg, args) => {
 module.exports.help = {
     name: "verification",
     arguments: "<channel/rolename> <channelID>",
-    description: "adds verification to channel or selects role for verification.",
+    description: "adds verification to channel or selects role for verification. requires MANAGE_CHANNELS permission.",
     category: "moderation"
 }

@@ -54,12 +54,6 @@
 		"category": "fun"
 	},
 	{
-		"name": "offer",
-		"arguments": "<title> <desc> <price> <currency> [image]",
-		"description": "creates an offer in the current channel\n- currency as text [e.G. EUR]\n- image optional using url or attatchment",
-		"category": "market"
-	},
-	{
 		"name": "char",
 		"arguments": "",
 		"description": "returns a random available character",
@@ -96,12 +90,6 @@
 		"category": "misc"
 	},
 	{
-		"name": "antiraid",
-		"arguments": "<enabled / disabled> [mpm]",
-		"description": "enable/disable antiraid. requires MANAGE_MESSAGES permission.",
-		"category": "moderation"
-	},
-	{
 		"name": "blacklist",
 		"arguments": "<voicejoin/serverjoin> <add/remove> <userid>",
 		"description": "blacklist or unblacklist someone from joining voicechat or a server. requires KICK_MEMBERS permission.",
@@ -109,14 +97,14 @@
 	},
 	{
 		"name": "blacklisted",
-		"arguments": "<all/voicejoin/serverjoin>",
+		"arguments": "<voicejoin/serverjoin>",
 		"description": "list the blacklisted users on a server. requires KICK_MEMBERS permission.",
 		"category": "moderation"
 	},
 	{
 		"name": "verification",
 		"arguments": "<channel/rolename> <channelID>",
-		"description": "adds verification to channel or selects role for verification.",
+		"description": "adds verification to channel or selects role for verification. requires MANAGE_CHANNELS permission.",
 		"category": "moderation"
 	}
 ]
