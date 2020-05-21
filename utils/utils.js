@@ -32,5 +32,11 @@ module.exports = {
         }
       });
     } catch {}
+  }, 
+  userFromMention: function userFromMention(m, bot) {
+    const matches = m.match(/^<@!?(\d+)>$/);
+	  if (!matches) return;
+	  const id = matches[1];
+	  return bot.users.cache.get(id);
   }
 };

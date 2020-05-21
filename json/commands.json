@@ -66,6 +66,12 @@
 		"category": "game"
 	},
 	{
+		"name": "avatar",
+		"arguments": "@mention",
+		"description": "returns the avatar of the mentioned user.",
+		"category": "misc"
+	},
+	{
 		"name": "help",
 		"arguments": "",
 		"description": "lists all commands.",

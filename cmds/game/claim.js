@@ -11,8 +11,7 @@ module.exports.run = async (bot, msg, args) => {
     } else {
 
         fs.readFile('json/game/claimed.json', (err, data) => {
-            if (err) throw err
-            console.log(err)
+            if (err) console.log(err)
 
             if (!(data.toString().includes(args.toString()))) {
                 if (JSON.stringify(chars).includes(args.toString())) {
