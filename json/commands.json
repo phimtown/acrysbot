@@ -1,17 +1,5 @@
 [
 	{
-		"name": "color",
-		"arguments": "<color / hex>",
-		"description": "color: assigns a premade color to you. available colors: alizarin, pomegranate, carrot, pumpkin, sunflower, orange, turquoise, greensea, emerald, nephritis, peterriver, belizehole, amethyst, wisteria.\nhex: assigns a custom color to you. hex color code expected (e.G. #12dce3).",
-		"category": "color"
-	},
-	{
-		"name": "removecolor",
-		"arguments": "<color/hex>",
-		"description": "remove a color role from yourself.",
-		"category": "color"
-	},
-	{
 		"name": "8ball",
 		"arguments": "",
 		"description": "ask 8ball a question.",
@@ -64,6 +52,24 @@
 		"arguments": "<char>",
 		"description": "claim a  character",
 		"category": "game"
+	},
+	{
+		"name": "trade",
+		"arguments": "<user> <char>",
+		"description": "trade a character with another user",
+		"category": "game"
+	},
+	{
+		"name": "color",
+		"arguments": "<color / hex>",
+		"description": "color: assigns a premade color to you. available colors: alizarin, pomegranate, carrot, pumpkin, sunflower, orange, turquoise, greensea, emerald, nephritis, peterriver, belizehole, amethyst, wisteria.\nhex: assigns a custom color to you. hex color code expected (e.G. #12dce3).",
+		"category": "color"
+	},
+	{
+		"name": "removecolor",
+		"arguments": "<color/hex>",
+		"description": "remove a color role from yourself.",
+		"category": "color"
 	},
 	{
 		"name": "avatar",
