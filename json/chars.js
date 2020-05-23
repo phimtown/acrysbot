@@ -66,5 +66,10 @@ module.exports.chars = [
     ["https://vignette.wikia.nocookie.net/darling-in-the-franxx/images/5/58/C_futoshi_stand.png/revision/latest/scale-to-width-down/212?cb=20180125040717", "Futoshi"],
     ["https://vignette.wikia.nocookie.net/darling-in-the-franxx/images/6/6d/Hachi.png/revision/latest/scale-to-width-down/132?cb=20180102094634", "Hachi"],
     ["https://vignette.wikia.nocookie.net/darling-in-the-franxx/images/7/7d/C_ikuno_stand.png/revision/latest/scale-to-width-down/136?cb=20180125041310", "Ikuno"],
-    ["https://vignette.wikia.nocookie.net/darling-in-the-franxx/images/e/e3/C_zorome_stand.png/revision/latest/scale-to-width-down/95?cb=20180124044918", "Zorome"]
+    ["https://vignette.wikia.nocookie.net/darling-in-the-franxx/images/e/e3/C_zorome_stand.png/revision/latest/scale-to-width-down/95?cb=20180124044918", "Zorome"],
+    ["https://media1.tenor.com/images/43ede4fdeb9714b797afc7f578bb60f7/tenor.gif", "Legoshi"],
+    ["https://www.anime-planet.com/images/characters/louis-beastars-122781.jpg", "Louis"],
+    ["https://cdn.myanimelist.net/images/characters/13/402716.jpg", "Haru"],
+    ["https://cdn.anisearch.de/images/character/cover/full/87/87369.jpg", "Tem"],
+    ["https://media1.tenor.com/images/0fbda078ecad41ca50d2ebafc7937dea/tenor.gif", "Jack"]
 ];
