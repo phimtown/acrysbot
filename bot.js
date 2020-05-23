@@ -5,33 +5,14 @@ const jt = require("json-toolkit");
 const fs = require('fs');
 const utils = require('./utils/utils.js');
 const embeds = require('./utils/embeds.js')
-const botSettings = JSON.parse(fs.readFileSync('./json/settings.json'))
+const botSettings = JSON.parse(fs.readFileSync('./json/settings.json'));
+const bot = new Discord.Client();
+bot.commands = new Discord.Collection();
 var prefix = botSettings.prefix;
 var commandsJson = [];
+var users = 0;
+config({ path: __dirname + "/.env" });
 
-const bot = new Discord.Client();
-
-config({
-    path: __dirname + "/.env"
-});
-
-bot.on('ready', () => {
-    console.log("> bot started");
-    console.log("> status: acry$ help | v" + version + " | " + bot.guilds.cache.size + " servers");
-    bot.user.setStatus("online");
-    bot.user.setActivity("acry$ help | v" + version + " | " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
-    jt.saveToFile(commandsJson, "./json/commands.json", "\t");
-});
-
-bot.on('guildCreate', guild => {
-    bot.user.setActivity("acry$ help | v" + version + " | " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
-});
-
-bot.on('guildDelete', guild => {
-    bot.user.setActivity("acry$ help | v" + version + " | " + bot.guilds.cache.size + " servers", { type: "PLAYING" });
-});
-
-bot.commands = new Discord.Collection();
 
 fs.readdir("./cmds/", (err) => {
     if (err) console.error(err);
@@ -62,6 +43,63 @@ fs.readdir("./cmds/", (err) => {
     });
 });
 
+bot.on('ready', () => {
+    console.log("> bot started");
+    users = 0;
+    bot.guilds.cache.forEach(async g => {
+        users += g.memberCount;
+    });
+    console.log("> v" + version + " | " + bot.guilds.cache.size + " servers | " + users + " users");
+    bot.user.setStatus("online");
+    setInterval(() => {
+        var rand = Math.floor(Math.random() * 3);
+        console.log(rand);
+        switch(rand) {
+            case 0: bot.user.setActivity("acry$ help | v" + version + " | " + bot.guilds.cache.size + " servers", { type: "PLAYING" }); break;
+            case 1: bot.user.setActivity("acry$ help | v" + version + " | " + users + " users", { type: "PLAYING" }); break;
+            case 2: bot.user.setActivity("acry$ help | v" + version + " | acrysbot.xyz", { type: "PLAYING" }); break;
+        }
+    }, 10000);
+    jt.saveToFile(commandsJson, "./json/commands.json", "\t");
+});
+
+bot.on('guildCreate', guild => {
+    users = 0;
+    bot.guilds.cache.forEach(async g => {
+        users += g.memberCount;
+    });
+});
+
+bot.on('guildDelete', guild => {
+    users = 0;
+    bot.guilds.cache.forEach(async g => {
+        users += g.memberCount;
+    });
+});
+
+bot.on("guildMemberAdd", async member => {
+    users = 0;
+    bot.guilds.cache.forEach(async g => {
+        users += g.memberCount;
+    });
+	try {
+		jt.parseFile('json/servers/blacklists/' + member.guild.id + '_server.json', (error, data) => {
+			if(error) return;
+			const index = data.indexOf(String(member.id));
+			if (index > -1) {
+				member.kick();
+			}
+		});
+	} catch {}
+});
+
+bot.on("guildMemberRemove", async member => {
+	users = 0;
+    bot.guilds.cache.forEach(async g => {
+        users += g.memberCount;
+    });
+});
+
 bot.on("voiceStateUpdate", async (oldState, newState) => {
 	try {
 		jt.parseFile('json/servers/blacklists/' + newState.guild.id + '_voice.json', (error, data) => {
@@ -69,18 +107,6 @@ bot.on("voiceStateUpdate", async (oldState, newState) => {
 			const index = data.indexOf(String(newState.id));
 			if (index > -1) {
 				newState.kick();
-			}
-		});
-	} catch {}
-});
-
-bot.on("guildMemberAdd", async member => {
-	try {
-		jt.parseFile('json/servers/blacklists/' + member.guild.id + '_server.json', (error, data) => {
-			if(error) return;
-			const index = data.indexOf(String(member.id));
-			if (index > -1) {
-				member.kick();
 			}
 		});
 	} catch {}
