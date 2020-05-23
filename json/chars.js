@@ -44,5 +44,27 @@ module.exports.chars = [
     ["https://vignette.wikia.nocookie.net/mudae/images/f/ff/Phoenix1.png/", "Phoenix"],
     ["https://vignette.wikia.nocookie.net/mudae/images/1/16/Olive1.png/", "Olive"],
     ["https://vignette.wikia.nocookie.net/mudae/images/1/1a/Ibuki_Mioda%241.png/", "Ibuki"],
-    ["https://cdn.discordapp.com/attachments/598891058298093600/701421570169503754/Emilia.png", "Emilia"]
+    ["https://cdn.discordapp.com/attachments/598891058298093600/701421570169503754/Emilia.png", "Emilia"],
+    ["https://cdn.discordapp.com/attachments/713830318607564811/713830827716378694/c1034f84a32a38c9340daa745110ae1bbc6e76bar1-1920-1080v2_uhq.jpg", "Hood"],
+    ["https://vignette.wikia.nocookie.net/mudae/images/8/8e/NaritaBrian_1.png/revision/latest?cb=20191009235548", "Narita"],
+    ["https://vignette.wikia.nocookie.net/mudae/images/7/7e/Newcastle1.png/revision/latest?cb=20191202102434", "Newcastle"],
+    ["https://vignette.wikia.nocookie.net/mudae/images/8/87/Nonko1.png/revision/latest?cb=20191018103709", "Nonko"],
+    ["https://vignette.wikia.nocookie.net/mudae/images/2/29/Nowaki_%28AL%291.png/revision/latest?cb=20191129222301", "Nowaki"],
+    ["https://vignette.wikia.nocookie.net/mudae/images/b/bd/Pulmo1.png/revision/latest?cb=20190828161917", "Pulmo"]
+    ["https://vignette.wikia.nocookie.net/mudae/images/f/ff/Shouto_Todoroki%241.png", "Todoroki"],
+    ["https://vignette.wikia.nocookie.net/mudae/images/c/cb/Katsuki_Bakugou%241.png", "Katsuki"],
+    ["https://vignette.wikia.nocookie.net/darling-in-the-franxx/images/d/da/42357b7e-bf42-40e9-a255-61143b1a11e1.png/revision/latest?cb=20180712042351", "Hiro"],
+    ["https://vignette.wikia.nocookie.net/darling-in-the-franxx/images/a/a7/C_mitsuru_stand.png", "Mitsuru"],
+    ["https://vignette.wikia.nocookie.net/darling-in-the-franxx/images/f/fc/C_goro_stand.png", "Goro"],
+    ["https://cdn.discordapp.com/attachments/597824741977620490/699285955395321856/levi.gif", "Levi"],
+    ["https://cdn.discordapp.com/attachments/597824741977620490/699286345125855272/Eren.gif", "Eren"],
+    ["https://cdn.discordapp.com/attachments/597824741977620490/699288989592453240/Nagisa.jpg", "Nagisa"],
+    ["https://cdn.discordapp.com/attachments/597824741977620490/699288621705854986/Karma.gif", "Karma"],
+    ["https://vignette.wikia.nocookie.net/darling-in-the-franxx/images/b/b0/New_nana.png/revision/latest/scale-to-width-down/310?cb=20180709205925", "007"],
+    ["https://vignette.wikia.nocookie.net/darling-in-the-franxx/images/6/6c/9a_stand.png/revision/latest/scale-to-width-down/138?cb=20190210155417", "9'a"],
+    ["https://vignette.wikia.nocookie.net/darling-in-the-franxx/images/0/03/001.png/revision/latest/scale-to-width-down/310?cb=20180610091331", "001"],
+    ["https://vignette.wikia.nocookie.net/darling-in-the-franxx/images/5/58/C_futoshi_stand.png/revision/latest/scale-to-width-down/212?cb=20180125040717", "Futoshi"],
+    ["https://vignette.wikia.nocookie.net/darling-in-the-franxx/images/6/6d/Hachi.png/revision/latest/scale-to-width-down/132?cb=20180102094634", "Hachi"],
+    ["https://vignette.wikia.nocookie.net/darling-in-the-franxx/images/7/7d/C_ikuno_stand.png/revision/latest/scale-to-width-down/136?cb=20180125041310", "Ikuno"],
+    ["https://vignette.wikia.nocookie.net/darling-in-the-franxx/images/e/e3/C_zorome_stand.png/revision/latest/scale-to-width-down/95?cb=20180124044918", "Zorome"]
 ];
