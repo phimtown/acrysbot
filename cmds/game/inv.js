@@ -13,8 +13,8 @@ module.exports.run = async (bot, msg, args) => {
         }
         var tempdata = data.toString().split(']');
         var wtf = tempdata.toString().split('[');
-        var tempxd = wtf.toString().split('"');
-        var xdddd = tempxd.toString().split(',');
+        var tempxd = wtf.toString().replace(/,/gi, " ");
+        var xdddd = tempxd.toString().split('"');
 
         const embed = new Discord.MessageEmbed()
             .setTimestamp()
