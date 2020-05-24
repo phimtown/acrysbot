@@ -1,5 +1,17 @@
 [
 	{
+		"name": "color",
+		"arguments": "<color / hex>",
+		"description": "color: assigns a premade color to you. available colors: alizarin, pomegranate, carrot, pumpkin, sunflower, orange, turquoise, greensea, emerald, nephritis, peterriver, belizehole, amethyst, wisteria.\nhex: assigns a custom color to you. hex color code expected (e.G. #12dce3).",
+		"category": "color"
+	},
+	{
+		"name": "removecolor",
+		"arguments": "<color/hex>",
+		"description": "remove a color role from yourself.",
+		"category": "color"
+	},
+	{
 		"name": "8ball",
 		"arguments": "",
 		"description": "ask 8ball a question.",
@@ -54,22 +66,40 @@
 		"category": "game"
 	},
 	{
+		"name": "inv",
+		"arguments": "",
+		"description": "shows your inventory",
+		"category": "game"
+	},
+	{
 		"name": "trade",
 		"arguments": "<user> <char>",
 		"description": "trade a character with another user",
 		"category": "game"
 	},
 	{
-		"name": "color",
-		"arguments": "<color / hex>",
-		"description": "color: assigns a premade color to you. available colors: alizarin, pomegranate, carrot, pumpkin, sunflower, orange, turquoise, greensea, emerald, nephritis, peterriver, belizehole, amethyst, wisteria.\nhex: assigns a custom color to you. hex color code expected (e.G. #12dce3).",
-		"category": "color"
+		"name": "blacklist",
+		"arguments": "<voicejoin/serverjoin> <add/remove> <userid>",
+		"description": "blacklist or unblacklist someone from joining voicechat or a server. requires KICK_MEMBERS permission.",
+		"category": "moderation"
 	},
 	{
-		"name": "removecolor",
-		"arguments": "<color/hex>",
-		"description": "remove a color role from yourself.",
-		"category": "color"
+		"name": "blacklisted",
+		"arguments": "<voicejoin/serverjoin>",
+		"description": "list the blacklisted users on a server. requires KICK_MEMBERS permission.",
+		"category": "moderation"
+	},
+	{
+		"name": "clear",
+		"arguments": "<amount>",
+		"description": "clear x amount of messages. requires MANAGE_MESSAGES permission.",
+		"category": "moderation"
+	},
+	{
+		"name": "verification",
+		"arguments": "<channel/rolename> <channelID>",
+		"description": "adds verification to channel or selects role for verification. requires MANAGE_CHANNELS permission.",
+		"category": "moderation"
 	},
 	{
 		"name": "avatar",
@@ -100,29 +130,5 @@
 		"arguments": "<userID>",
 		"description": "shows information about a user",
 		"category": "misc"
-	},
-	{
-		"name": "blacklist",
-		"arguments": "<voicejoin/serverjoin> <add/remove> <userid>",
-		"description": "blacklist or unblacklist someone from joining voicechat or a server. requires KICK_MEMBERS permission.",
-		"category": "moderation"
-	},
-	{
-		"name": "blacklisted",
-		"arguments": "<voicejoin/serverjoin>",
-		"description": "list the blacklisted users on a server. requires KICK_MEMBERS permission.",
-		"category": "moderation"
-	},
-	{
-		"name": "clear",
-		"arguments": "<amount>",
-		"description": "clear x amount of messages. requires MANAGE_MESSAGES permission.",
-		"category": "moderation"
-	},
-	{
-		"name": "verification",
-		"arguments": "<channel/rolename> <channelID>",
-		"description": "adds verification to channel or selects role for verification. requires MANAGE_CHANNELS permission.",
-		"category": "moderation"
 	}
 ]
