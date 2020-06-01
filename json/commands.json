@@ -42,6 +42,12 @@
 		"category": "fun"
 	},
 	{
+		"name": "kiss",
+		"arguments": "<mention>",
+		"description": "kiss someone",
+		"category": "fun"
+	},
+	{
 		"name": "stfricku",
 		"arguments": "",
 		"description": "tell someone to shut the frick up.",
@@ -72,28 +78,10 @@
 		"category": "game"
 	},
 	{
-		"name": "blacklist",
-		"arguments": "<voicejoin/serverjoin> <add/remove> <userid>",
-		"description": "blacklist or unblacklist someone from joining voicechat or a server. requires KICK_MEMBERS permission.",
-		"category": "moderation"
-	},
-	{
-		"name": "blacklisted",
-		"arguments": "<voicejoin/serverjoin>",
-		"description": "list the blacklisted users on a server. requires KICK_MEMBERS permission.",
-		"category": "moderation"
-	},
-	{
-		"name": "clear",
-		"arguments": "<amount>",
-		"description": "clear x amount of messages. requires MANAGE_MESSAGES permission.",
-		"category": "moderation"
-	},
-	{
-		"name": "verification",
-		"arguments": "<channel/rolename> <channelID>",
-		"description": "adds verification to channel or selects role for verification. requires MANAGE_CHANNELS permission.",
-		"category": "moderation"
+		"name": "trade",
+		"arguments": "<user> <char>",
+		"description": "trade a character with another user",
+		"category": "game"
 	},
 	{
 		"name": "avatar",
@@ -120,9 +108,39 @@
 		"category": "misc"
 	},
 	{
+		"name": "stats",
+		"arguments": "",
+		"description": "shows bot statistics",
+		"category": "misc"
+	},
+	{
 		"name": "user",
 		"arguments": "<userID>",
 		"description": "shows information about a user",
 		"category": "misc"
+	},
+	{
+		"name": "blacklist",
+		"arguments": "<voicejoin/serverjoin> <add/remove> <userid>",
+		"description": "blacklist or unblacklist someone from joining voicechat or a server. requires KICK_MEMBERS permission.",
+		"category": "moderation"
+	},
+	{
+		"name": "blacklisted",
+		"arguments": "<voicejoin/serverjoin>",
+		"description": "list the blacklisted users on a server. requires KICK_MEMBERS permission.",
+		"category": "moderation"
+	},
+	{
+		"name": "clear",
+		"arguments": "<amount>",
+		"description": "clear x amount of messages. requires MANAGE_MESSAGES permission.",
+		"category": "moderation"
+	},
+	{
+		"name": "verification",
+		"arguments": "<channel/rolename> <channelID>",
+		"description": "adds verification to channel or selects role for verification. requires MANAGE_CHANNELS permission.",
+		"category": "moderation"
 	}
 ]

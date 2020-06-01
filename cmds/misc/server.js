@@ -30,7 +30,7 @@ module.exports.run = async (bot, msg, args) => {
 			.addField('Created on: ', mainguild.createdAt)
 			.addField('Members: ', mainguild.memberCount)
 			.setDescription(mainguild.name);
-		msg.channel.send(embed).then(async msg => msg.delete({timeout: 30000}));;
+		msg.channel.send(embed);
 	}
 };
 

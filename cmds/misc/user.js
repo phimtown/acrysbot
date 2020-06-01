@@ -19,12 +19,14 @@ module.exports.run = async(bot, msg, args) => {
       .addField('Bot: ', __user__.bot);
     msg.channel.send(embed);
 
+  } catch(err) { 
+    console.log(err);
     msg.channel.send({
       embed: embeds.errorEmbed('Mention who\'s user info you want to access!', msg.author.avatarURL(), msg.author.tag)
     }).then(async msg => msg.delete({
       timeout: 5000
     }));
-  } catch(err) { console.log(err); }
+   }
 }
 
     module.exports.help = {
