@@ -1,8 +1,8 @@
 [
 	{
 		"name": "color",
-		"arguments": "<color / hex>",
-		"description": "color: assigns a premade color to you. available colors: alizarin, pomegranate, carrot, pumpkin, sunflower, orange, turquoise, greensea, emerald, nephritis, peterriver, belizehole, amethyst, wisteria.\nhex: assigns a custom color to you. hex color code expected (e.G. #12dce3).",
+		"arguments": "<[enable, disable] / color / hex>",
+		"description": "enable/disable: enables or disables the command.\ncolor: assigns a premade color to you. available colors: alizarin, pomegranate, carrot, pumpkin, sunflower, orange, turquoise, greensea, emerald, nephritis, peterriver, belizehole, amethyst, wisteria.\nhex: assigns a custom color to you. hex color code expected (e.G. #12dce3).",
 		"category": "color"
 	},
 	{
@@ -39,12 +39,6 @@
 		"name": "fuck",
 		"arguments": "",
 		"description": "well.. says fuck you.",
-		"category": "fun"
-	},
-	{
-		"name": "kiss",
-		"arguments": "<mention>",
-		"description": "kiss someone",
 		"category": "fun"
 	},
 	{
@@ -138,9 +132,21 @@
 		"category": "moderation"
 	},
 	{
+		"name": "goodbye",
+		"arguments": "<enable/disable/channelID> [id]",
+		"description": "enables goodbye messages/sets a goodbye message channel. requires ADMINISTRATOR permission.",
+		"category": "moderation"
+	},
+	{
 		"name": "verification",
 		"arguments": "<channel/rolename> <channelID>",
 		"description": "adds verification to channel or selects role for verification. requires MANAGE_CHANNELS permission.",
+		"category": "moderation"
+	},
+	{
+		"name": "welcome",
+		"arguments": "<enable/disable/channelID> [id]",
+		"description": "enables welcome messages/sets a welcome message channel. requires ADMINISTRATOR permission.",
 		"category": "moderation"
 	}
 ]

@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const { config } = require("dotenv");
-const version = '1.1.3';
+const version = '1.1.4';
 const jt = require("json-toolkit");
 const fs = require('fs');
 const utils = require('./utils/utils.js');
@@ -53,7 +53,6 @@ bot.on('ready', () => {
     bot.user.setStatus("online");
     setInterval(() => {
         var rand = Math.floor(Math.random() * 3);
-        console.log(rand);
         switch(rand) {
             case 0: bot.user.setActivity("acry$ help | v" + version + " | " + bot.guilds.cache.size + " servers", { type: "PLAYING" }); break;
             case 1: bot.user.setActivity("acry$ help | v" + version + " | " + users + " users", { type: "PLAYING" }); break;
@@ -61,6 +60,7 @@ bot.on('ready', () => {
         }
     }, 10000);
     jt.saveToFile(commandsJson, "./json/commands.json", "\t");
+
 });
 
 bot.on('guildCreate', guild => {
@@ -90,7 +90,32 @@ bot.on("guildMemberAdd", async member => {
 				member.kick();
 			}
 		});
-	} catch {}
+    } catch {}
+    try {
+        jt.parseFile('json/servers/commands/' + bot.guilds.cache.get(member.guild.id) + '_welcome.json', (error, data) => {
+			if(error) {
+                console.log(error)
+                return;
+            }
+			if(data == "enabled") {
+                jt.parseFile('json/servers/welcome/' + bot.guilds.cache.get(member.guild.id) + '.json', (error, data) => {
+                    if(error) {
+                        console.log(error)
+                        return;
+                    }
+                    const c = member.guild.channels.cache.get(data.toString());
+                    const embed = new Discord.MessageEmbed()
+                        .setColor(0x38d161)
+                        .setTimestamp()
+                        .setThumbnail(member.user.avatarURL())
+                        .setFooter(member.user.tag, member.user.avatarURL())
+                        .setTitle(member.displayName + " joined!")
+                        .addField('Joined at: ', member.joinedAt)
+                    c.send({embed: embed});
+                });
+            }
+		});
+    } catch (err) { console.log(err);}
 });
 
 bot.on("guildMemberRemove", async member => {
@@ -98,6 +123,31 @@ bot.on("guildMemberRemove", async member => {
     bot.guilds.cache.forEach(async g => {
         users += g.memberCount;
     });
+    try {
+        jt.parseFile('json/servers/commands/' + bot.guilds.cache.get(member.guild.id) + '_goodbye.json', (error, data) => {
+			if(error) {
+                console.log(error)
+                return;
+            }
+			if(data == "enabled") {
+                jt.parseFile('json/servers/goodbye/' + bot.guilds.cache.get(member.guild.id) + '.json', (error, data) => {
+                    if(error) {
+                        console.log(error)
+                        return;
+                    }
+                    const c = member.guild.channels.cache.get(data.toString());
+                    const embed = new Discord.MessageEmbed()
+                        .setColor(0xe34b4b)
+                        .setTimestamp()
+                        .setThumbnail(member.user.avatarURL())
+                        .setFooter(member.user.tag, member.user.avatarURL())
+                        .setTitle(member.displayName + " left!")
+                        .addField('Joined at: ', member.joinedAt)
+                    c.send({embed: embed});
+                });
+            }
+		});
+    } catch (err) { console.log(err);}
 });
 
 bot.on("voiceStateUpdate", async (oldState, newState) => {
