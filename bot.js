@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const { config } = require("dotenv");
-const version = '1.1.4';
+const version = '1.1.5';
 const jt = require("json-toolkit");
 const fs = require('fs');
 const utils = require('./utils/utils.js');
@@ -115,7 +115,7 @@ bot.on("guildMemberAdd", async member => {
                 });
             }
 		});
-    } catch (err) { console.log(err);}
+    } catch {}
 });
 
 bot.on("guildMemberRemove", async member => {

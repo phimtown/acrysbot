@@ -2,7 +2,6 @@ const Discord = require("discord.js");
 const embeds = require('../../utils/embeds');
 const utils = require('../../utils/utils');
 
-
 module.exports.run = async (bot, msg, args) => {
     if (args[0]) {
 		const u = utils.userFromMention(args[0], bot);

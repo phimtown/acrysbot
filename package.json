@@ -19,7 +19,10 @@
   "dependencies": {
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
+    "gm": "^1.23.1",
+    "http": "0.0.1-security",
     "json-toolkit": "^1.1.0",
-    "needle": "^2.4.1"
+    "needle": "^2.4.1",
+    "request": "^2.88.2"
   }
 }

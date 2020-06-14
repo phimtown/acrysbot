@@ -1,5 +1,4 @@
 'use strict'
-const fs = require('fs');
 const embeds = require('./embeds.js')
 const jt = require("json-toolkit");
 

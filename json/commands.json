@@ -148,5 +148,47 @@
 		"arguments": "<enable/disable/channelID> [id]",
 		"description": "enables welcome messages/sets a welcome message channel. requires ADMINISTRATOR permission.",
 		"category": "moderation"
+	},
+	{
+		"name": "baguette",
+		"arguments": "[img]",
+		"description": "baguette. \nimg: image url or attatched image",
+		"category": "image"
+	},
+	{
+		"name": "captcha",
+		"arguments": "<imageurl> <name>",
+		"description": "recaptcha with an custom image and title.\nimgurl: image url, name: name for the image",
+		"category": "image"
+	},
+	{
+		"name": "changemymind",
+		"arguments": "<text>",
+		"description": "change my mind. \ntext: your opinion.",
+		"category": "image"
+	},
+	{
+		"name": "clyde",
+		"arguments": "<text>",
+		"description": "clyde. \ntext: text to clydify.",
+		"category": "image"
+	},
+	{
+		"name": "ship",
+		"arguments": "@user1 @user2",
+		"description": "ship two users. \n@user1: first user mention, @user2: second user mention",
+		"category": "image"
+	},
+	{
+		"name": "threats",
+		"arguments": "[img]",
+		"description": "the 3 biggest threats to society. \nimg: image url or attatched image",
+		"category": "image"
+	},
+	{
+		"name": "whowouldwin",
+		"arguments": "@user1 @user2",
+		"description": "who of the two users would win?. \n@user1: first user mention, @user2: second user mention",
+		"category": "image"
 	}
 ]
