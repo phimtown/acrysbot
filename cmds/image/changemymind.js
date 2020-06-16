@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const embeds = require('../../utils/embeds.js');
-const request = require('request');
+const needle = require('needle');
 
 module.exports.run = async (bot, msg, args) => {
     if(args[0]) {
@@ -8,8 +8,8 @@ module.exports.run = async (bot, msg, args) => {
         args.forEach(a => {
             string += a + " ";
         });
-        request(`https://nekobot.xyz/api/imagegen?type=changemymind&text=${string}`, { json: true }, (err, res, body) => {
-            if (err) {
+        needle.get(`https://nekobot.xyz/api/imagegen?type=changemymind&text=${string}`, function(err, res) {
+            if (err && res.body.status != 200) {
                 console.log(err);
                 msg.channel.send({
                     embed: embeds.errorEmbed('An error occured.', msg.author.avatarURL(), msg.author.tag)
@@ -21,7 +21,7 @@ module.exports.run = async (bot, msg, args) => {
             .setTimestamp()
             .setFooter(msg.author.tag, msg.author.avatarURL())
             .setTitle(`Change my mind`)
-            .setImage(body.message);
+            .setImage(res.body.message);
             msg.channel.send(embed);
         });
         return;

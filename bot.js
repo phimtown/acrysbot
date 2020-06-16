@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const { config } = require("dotenv");
-const version = '1.1.5';
+const version = '1.1.6';
 const jt = require("json-toolkit");
 const fs = require('fs');
 const utils = require('./utils/utils.js');
@@ -174,4 +174,4 @@ bot.on("message", async msg => {
     if (command) command.run(bot, msg, args);
 });
 
-bot.login(process.env.TOKEN);
+bot.login(process.env.TOKENDEV);

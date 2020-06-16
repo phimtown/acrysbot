@@ -20,5 +20,5 @@ module.exports.help = {
   name: "cat",
   arguments: "",
   description: "drops a random cat image.",
-  category: "fun"
+  category: "image"
 }

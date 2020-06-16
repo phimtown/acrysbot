@@ -4,9 +4,8 @@ const needle = require('needle');
 
 module.exports.run = async (bot, msg, args) => {
     if(args[0]) {
-        needle.get(`https://nekobot.xyz/api/imagegen?type=baguette&url=${args[0]}`, function(err, res) {
+        needle.get(`https://nekobot.xyz/api/imagegen?type=deepfry&image=${args[0]}`, function(err, res) {
             if (err && res.body.status != 200) {
-                console.log(err);
                 msg.channel.send({
                     embed: embeds.errorEmbed('An error occured.', msg.author.avatarURL(), msg.author.tag)
                 }).then(async msg => msg.delete({timeout: 5000}));
@@ -16,7 +15,7 @@ module.exports.run = async (bot, msg, args) => {
             .setColor(0x53e677)
             .setTimestamp()
             .setFooter(msg.author.tag, msg.author.avatarURL())
-            .setTitle(`Baguette`)
+            .setTitle(`Deepfry`)
             .setImage(res.body.message);
             msg.channel.send(embed);
         });
@@ -25,9 +24,8 @@ module.exports.run = async (bot, msg, args) => {
 
     if (msg.attachments.size > 0) {
         msg.attachments.forEach(img => {
-            needle.get(`https://nekobot.xyz/api/imagegen?type=baguette&url=${img.url}`, function(err, res) {
+            needle.get(`https://nekobot.xyz/api/imagegen?type=deepfry&image=${img.url}`, function(err, res) {
                 if (err && res.body.status != 200) {
-                    console.log(err);
                     msg.channel.send({
                         embed: embeds.errorEmbed('An error occured.', msg.author.avatarURL(), msg.author.tag)
                     }).then(async msg => msg.delete({timeout: 5000}));
@@ -37,7 +35,7 @@ module.exports.run = async (bot, msg, args) => {
                 .setColor(0x53e677)
                 .setTimestamp()
                 .setFooter(msg.author.tag, msg.author.avatarURL())
-                .setTitle(`Baguette`)
+                .setTitle(`Deepfry`)
                 .setImage(res.body.message);
                 msg.channel.send(embed);
             });
@@ -48,8 +46,8 @@ module.exports.run = async (bot, msg, args) => {
 
 
 module.exports.help = {
-  name: "baguette",
+  name: "deepfry",
   arguments: "[img]",
-  description: "baguette. \nimg: image url or attatched image",
+  description: "deepfry an image. \nimg: image url or attatched image",
   category: "image"
 }

@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const embeds = require('../../utils/embeds.js');
-const request = require('request');
+const needle = require('needle');
 const utils = require('../../utils/utils');
 
 module.exports.run = async (bot, msg, args) => {
@@ -10,11 +10,11 @@ module.exports.run = async (bot, msg, args) => {
         }).then(async msg => msg.delete({timeout: 5000}));
         return;
     }
-    if(args[0] && msg.mentions.members.size == 2) {
+    if(args[0] && msg.mentions.members.size >= 2) {
         const u1 = utils.userFromMention(args[0], bot);
         const u2 = utils.userFromMention(args[1], bot);
-        request(`https://nekobot.xyz/api/imagegen?type=ship&user1=${u1.displayAvatarURL({ dynamic: true, format: 'png', size: 2048 })}&user2=${u2.displayAvatarURL({ dynamic: true, format: 'png', size: 2048 })}`, { json: true }, (err, res, body) => {
-            if (err) {
+        needle.get(`https://nekobot.xyz/api/imagegen?type=ship&user1=${u1.displayAvatarURL({ dynamic: true, format: 'png', size: 2048 })}&user2=${u2.displayAvatarURL({ dynamic: true, format: 'png', size: 2048 })}`, function(err, res) {
+            if (err && res.body.status != 200) {
                 console.log(err);
                 msg.channel.send({
                     embed: embeds.errorEmbed('An error occured.', msg.author.avatarURL(), msg.author.tag)
@@ -26,7 +26,7 @@ module.exports.run = async (bot, msg, args) => {
             .setTimestamp()
             .setFooter(msg.author.tag, msg.author.avatarURL())
             .setTitle(`Ship`)
-            .setImage(body.message);
+            .setImage(res.body.message);
             msg.channel.send(embed);
         });
         return;

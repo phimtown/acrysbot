@@ -1,11 +1,11 @@
 const Discord = require("discord.js");
 const embeds = require('../../utils/embeds.js');
-const request = require('request');
+const needle = require('needle');
 
 module.exports.run = async (bot, msg, args) => {
     if(args[0]) {
-        request(`https://nekobot.xyz/api/imagegen?type=threats&url=${args[0]}`, { json: true }, (err, res, body) => {
-            if (err) {
+        needle.get(`https://nekobot.xyz/api/imagegen?type=threats&url=${args[0]}`, function(err, res) {
+            if (err && res.body.status != 200) {
                 msg.channel.send({
                     embed: embeds.errorEmbed('An error occured.', msg.author.avatarURL(), msg.author.tag)
                 }).then(async msg => msg.delete({timeout: 5000}));
@@ -16,7 +16,7 @@ module.exports.run = async (bot, msg, args) => {
             .setTimestamp()
             .setFooter(msg.author.tag, msg.author.avatarURL())
             .setTitle(`Threats`)
-            .setImage(body.message);
+            .setImage(res.body.message);
             msg.channel.send(embed);
         });
         return;
@@ -24,8 +24,8 @@ module.exports.run = async (bot, msg, args) => {
 
     if (msg.attachments.size > 0) {
         msg.attachments.forEach(img => {
-            request(`https://nekobot.xyz/api/imagegen?type=threats&url=${img.url}`, { json: true }, (err, res, body) => {
-                if (err) {
+            needle.get(`https://nekobot.xyz/api/imagegen?type=threats&url=${img.url}`, function(err, res) {
+                if (err && res.body.status != 200) {
                     msg.channel.send({
                         embed: embeds.errorEmbed('An error occured.', msg.author.avatarURL(), msg.author.tag)
                     }).then(async msg => msg.delete({timeout: 5000}));
@@ -36,7 +36,7 @@ module.exports.run = async (bot, msg, args) => {
                 .setTimestamp()
                 .setFooter(msg.author.tag, msg.author.avatarURL())
                 .setTitle(`Threats`)
-                .setImage(body.message);
+                .setImage(res.body.message);
                 msg.channel.send(embed);
             });
         });

@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 const embeds = require('../../utils/embeds.js');
-const request = require('request');
+const needle = require('needle');
 
 module.exports.run = async (bot, msg, args) => {
     if(args[0]) {
@@ -8,8 +8,8 @@ module.exports.run = async (bot, msg, args) => {
         args.slice(1).forEach(a => {
             string += a + " ";
         });
-        request(`https://nekobot.xyz/api/imagegen?type=captcha&url=${args[0]}&username=${string}`, { json: true }, (err, res, body) => {
-            if (err) {
+        needle.get(`https://nekobot.xyz/api/imagegen?type=captcha&url=${args[0]}&username=${string}`, function(err, res) {
+            if (err && res.body.status != 200) {
                 msg.channel.send({
                     embed: embeds.errorEmbed('An error occured.', msg.author.avatarURL(), msg.author.tag)
                 }).then(async msg => msg.delete({timeout: 5000}));
@@ -20,7 +20,7 @@ module.exports.run = async (bot, msg, args) => {
             .setTimestamp()
             .setFooter(msg.author.tag, msg.author.avatarURL())
             .setTitle(`Captcha`)
-            .setImage(body.message);
+            .setImage(res.body.message);
             msg.channel.send(embed);
         });
         return;

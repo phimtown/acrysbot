@@ -8,7 +8,7 @@ module.exports.run = async (bot, msg, args) => {
         args.forEach(a => {
             string += a + " ";
         });
-        needle.get(`https://nekobot.xyz/api/imagegen?type=clyde&text=${string}`, function(err, res) {
+        needle.get(`https://nekobot.xyz/api/imagegen?type=kannagen&text=${string}`, function(err, res) {
             if (err && res.body.status != 200) {
                 console.log(err);
                 msg.channel.send({
@@ -20,7 +20,7 @@ module.exports.run = async (bot, msg, args) => {
             .setColor(0x53e677)
             .setTimestamp()
             .setFooter(msg.author.tag, msg.author.avatarURL())
-            .setTitle(`Clyde`)
+            .setTitle(`Kannagen`)
             .setImage(res.body.message);
             msg.channel.send(embed);
         });
@@ -30,8 +30,8 @@ module.exports.run = async (bot, msg, args) => {
 
 
 module.exports.help = {
-  name: "clyde",
+  name: "kannagen",
   arguments: "<text>",
-  description: "clyde. \ntext: text to clydify.",
+  description: "clyde. \ntext: text to kannafy.",
   category: "image"
 }
