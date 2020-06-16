@@ -37,8 +37,8 @@ module.exports.run = async (bot, msg, args) => {
 
 
 module.exports.help = {
-  name: "baguette",
+  name: "magik",
   arguments: "<url> <intensity>",
-  description: "baguette. \nurl: image url, intensity: magik intensity between 1-10",
+  description: "image magik woo. \nurl: image url, intensity: magik intensity between 1-10",
   category: "image"
 }
