@@ -6,6 +6,7 @@ please don't skid, thank you. we're happy if you can learn something from our co
 
 github/wtf6yte - founder & development  
 github/6lyxt - development  
+github/jlorezz - development
 
 # invite link
 
