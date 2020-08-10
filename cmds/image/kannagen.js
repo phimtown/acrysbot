@@ -32,6 +32,6 @@ module.exports.run = async (bot, msg, args) => {
 module.exports.help = {
   name: "kannagen",
   arguments: "<text>",
-  description: "clyde. \ntext: text to kannafy.",
+  description: "kannagen. \ntext: text to kannafy.",
   category: "image"
 }

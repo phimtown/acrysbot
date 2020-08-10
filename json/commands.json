@@ -42,28 +42,22 @@
 		"category": "fun"
 	},
 	{
-		"name": "char",
+		"name": "achievement",
+		"arguments": "<text>",
+		"description": "create a minecraft achievement image. \nseperate text (and optional icon, acry$ achievementicons for a list of icons) with a |. example: acry$ achievement i'm an achievement text[| 1-45]",
+		"category": "image"
+	},
+	{
+		"name": "achievementicons",
 		"arguments": "",
-		"description": "returns a random available character",
-		"category": "game"
+		"description": "lists all icons you can use for acry$ achievement.",
+		"category": "image"
 	},
 	{
-		"name": "claim",
-		"arguments": "<char>",
-		"description": "claim a  character",
-		"category": "game"
-	},
-	{
-		"name": "inv",
-		"arguments": "",
-		"description": "shows your inventory",
-		"category": "game"
-	},
-	{
-		"name": "trade",
-		"arguments": "<user> <char>",
-		"description": "trade a character with another user",
-		"category": "game"
+		"name": "amiajoke",
+		"arguments": "[img]",
+		"description": "creates a 'am i a joke to you?' meme. \nimg: image url or attatched image",
+		"category": "image"
 	},
 	{
 		"name": "awooify",
@@ -120,6 +114,18 @@
 		"category": "image"
 	},
 	{
+		"name": "drake",
+		"arguments": "<text | text2>",
+		"description": "create a drake meme. \nseperate top and bottom text with a |. example: acry$ drake i'm a top text|i'm a bottom text",
+		"category": "image"
+	},
+	{
+		"name": "fact",
+		"arguments": "<text>",
+		"description": "display your fax. \ntext: the fact, man. your fax.",
+		"category": "image"
+	},
+	{
 		"name": "iphonex",
 		"arguments": "[img]",
 		"description": "fills an iphone with an image. \nimg: image url or attatched image",
@@ -134,7 +140,7 @@
 	{
 		"name": "kannagen",
 		"arguments": "<text>",
-		"description": "clyde. \ntext: text to kannafy.",
+		"description": "kannagen. \ntext: text to kannafy.",
 		"category": "image"
 	},
 	{
@@ -144,9 +150,21 @@
 		"category": "image"
 	},
 	{
-		"name": "baguette",
+		"name": "magik",
 		"arguments": "<url> <intensity>",
-		"description": "baguette. \nurl: image url, intensity: magik intensity between 1-10",
+		"description": "image magik woo. \nurl: image url, intensity: magik intensity between 1-10",
+		"category": "image"
+	},
+	{
+		"name": "pornhub",
+		"arguments": "<text | text2>",
+		"description": "create a pornhub text image. \nseperate top and bottom text with a |. example: acry$ pornhub porn|hub",
+		"category": "image"
+	},
+	{
+		"name": "sadcat",
+		"arguments": "",
+		"description": "drops a random sad cat image.",
 		"category": "image"
 	},
 	{
@@ -244,5 +262,29 @@
 		"arguments": "<enable/disable/channelID> [id]",
 		"description": "enables welcome messages/sets a welcome message channel. requires ADMINISTRATOR permission.",
 		"category": "moderation"
+	},
+	{
+		"name": "char",
+		"arguments": "",
+		"description": "returns a random available character",
+		"category": "game"
+	},
+	{
+		"name": "claim",
+		"arguments": "<char>",
+		"description": "claim a  character",
+		"category": "game"
+	},
+	{
+		"name": "inv",
+		"arguments": "",
+		"description": "shows your inventory",
+		"category": "game"
+	},
+	{
+		"name": "trade",
+		"arguments": "<user> <char>",
+		"description": "trade a character with another user",
+		"category": "game"
 	}
 ]
