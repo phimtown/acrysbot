@@ -16,7 +16,8 @@ https://acrysbot.xyz/acrysinvite
 
 # development discord
 
-https://acrysbot.xyz/acryscord
+~~https://acrysbot.xyz/acryscord~~
+took it down due to it being *dead*
 
 # commands
 
